@@ -12,6 +12,7 @@
 @interface UnicodeDetailViewController : UIViewController {
 
 }
+
 @property(nonatomic, assign) IBOutlet UILabel *charLabel; 
 @property(nonatomic, assign) IBOutlet UILabel *hexLabel; 
 @property(nonatomic, assign) IBOutlet UILabel *htmlEntityLabe; 

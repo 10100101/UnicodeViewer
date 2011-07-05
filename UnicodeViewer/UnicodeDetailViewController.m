@@ -38,6 +38,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - Actions
+
+- (IBAction) addToFavorites:(id) sender {
+    //TODO implementieren
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -46,6 +52,11 @@
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
     hexLabel.text       = [NSString stringWithFormat:@"U+%X", unicode];
     htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];
+
+    UIBarButtonItem *addToFavs = 
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addToFavorites:)];
+    self.navigationItem.rightBarButtonItem = addToFavs;
+    [addToFavs release];
 }
 
 - (void)viewDidUnload
