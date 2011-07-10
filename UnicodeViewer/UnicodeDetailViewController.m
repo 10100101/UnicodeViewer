@@ -54,7 +54,12 @@
     htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];
 
     UIBarButtonItem *addToFavs = 
-        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addToFavorites:)];
+    [[UIBarButtonItem alloc] 
+        initWithImage:[UIImage 
+        imageNamed:@"tag"] 
+        style:UIBarButtonItemStylePlain 
+        target:self 
+        action:@selector(addToFavorites:)];
     self.navigationItem.rightBarButtonItem = addToFavs;
     [addToFavs release];
 }
