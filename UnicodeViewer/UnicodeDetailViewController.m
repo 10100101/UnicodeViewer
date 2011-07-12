@@ -56,7 +56,7 @@
     UIBarButtonItem *addToFavs = 
     [[UIBarButtonItem alloc] 
         initWithImage:[UIImage 
-        imageNamed:@"tag"] 
+        imageNamed:@"heart-l"] 
         style:UIBarButtonItemStylePlain 
         target:self 
         action:@selector(addToFavorites:)];
