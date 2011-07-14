@@ -24,6 +24,11 @@
 		1B1A970413C08F5D001E2AD5 /* UnicodeViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A970313C08F5D001E2AD5 /* UnicodeViewerTests.m */; };
 		1B1A971013C09706001E2AD5 /* UnicodeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A970E13C09706001E2AD5 /* UnicodeListViewController.m */; };
 		1B1A971113C09706001E2AD5 /* UnicodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A970F13C09706001E2AD5 /* UnicodeListViewController.xib */; };
+		1B3F647D13CEC58C0065917A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3F647C13CEC58C0065917A /* CoreData.framework */; };
+		1B3F647F13CEC5AD0065917A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3F647E13CEC5AD0065917A /* CoreData.framework */; };
+		1B3F648213CEC5C80065917A /* UVModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */; };
+		1B3F648513CEC6190065917A /* UVBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F648413CEC6190065917A /* UVBlock.m */; };
+		1B3F648813CEC6260065917A /* UVChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F648713CEC6260065917A /* UVChar.m */; };
 		1B9E7DC713C0C62300ABD69D /* UnicodeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */; };
 		1B9E7DC813C0C62300ABD69D /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B9E7DC613C0C62300ABD69D /* UnicodeDetailViewController.xib */; };
 		1B9E7DCC13C0D44000ABD69D /* CopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9E7DCB13C0D44000ABD69D /* CopyLabel.m */; };
@@ -76,6 +81,13 @@
 		1B1A970D13C09706001E2AD5 /* UnicodeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeListViewController.h; sourceTree = "<group>"; };
 		1B1A970E13C09706001E2AD5 /* UnicodeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeListViewController.m; sourceTree = "<group>"; };
 		1B1A970F13C09706001E2AD5 /* UnicodeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeListViewController.xib; sourceTree = "<group>"; };
+		1B3F647C13CEC58C0065917A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1B3F647E13CEC5AD0065917A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1B3F648113CEC5C80065917A /* UVModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UVModel.xcdatamodel; sourceTree = "<group>"; };
+		1B3F648313CEC6190065917A /* UVBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlock.h; sourceTree = "<group>"; };
+		1B3F648413CEC6190065917A /* UVBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlock.m; sourceTree = "<group>"; };
+		1B3F648613CEC6260065917A /* UVChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UVChar.h; path = ../UVChar.h; sourceTree = "<group>"; };
+		1B3F648713CEC6260065917A /* UVChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UVChar.m; path = ../UVChar.m; sourceTree = "<group>"; };
 		1B9E7DC413C0C62300ABD69D /* UnicodeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeDetailViewController.h; sourceTree = "<group>"; };
 		1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeDetailViewController.m; sourceTree = "<group>"; };
 		1B9E7DC613C0C62300ABD69D /* UnicodeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeDetailViewController.xib; sourceTree = "<group>"; };
@@ -101,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3F647D13CEC58C0065917A /* CoreData.framework in Frameworks */,
 				1B1A96CF13C08F5D001E2AD5 /* UIKit.framework in Frameworks */,
 				1B1A96D113C08F5D001E2AD5 /* Foundation.framework in Frameworks */,
 				1B1A96D313C08F5D001E2AD5 /* CoreGraphics.framework in Frameworks */,
@@ -111,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3F647F13CEC5AD0065917A /* CoreData.framework in Frameworks */,
 				1B1A96F513C08F5D001E2AD5 /* UIKit.framework in Frameworks */,
 				1B1A96F613C08F5D001E2AD5 /* Foundation.framework in Frameworks */,
 				1B1A96F713C08F5D001E2AD5 /* CoreGraphics.framework in Frameworks */,
@@ -123,6 +137,8 @@
 		1B1A96BF13C08F5C001E2AD5 = {
 			isa = PBXGroup;
 			children = (
+				1B3F647E13CEC5AD0065917A /* CoreData.framework */,
+				1B3F647C13CEC58C0065917A /* CoreData.framework */,
 				1B1A96D413C08F5D001E2AD5 /* UnicodeViewer */,
 				1B1A96FA13C08F5D001E2AD5 /* UnicodeViewerTests */,
 				1B1A96CD13C08F5D001E2AD5 /* Frameworks */,
@@ -206,6 +222,11 @@
 		1BAC57B613CD66AB00B3B889 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */,
+				1B3F648313CEC6190065917A /* UVBlock.h */,
+				1B3F648413CEC6190065917A /* UVBlock.m */,
+				1B3F648613CEC6260065917A /* UVChar.h */,
+				1B3F648713CEC6260065917A /* UVChar.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -365,6 +386,9 @@
 				1B1A971013C09706001E2AD5 /* UnicodeListViewController.m in Sources */,
 				1B9E7DC713C0C62300ABD69D /* UnicodeDetailViewController.m in Sources */,
 				1B9E7DCC13C0D44000ABD69D /* CopyLabel.m in Sources */,
+				1B3F648213CEC5C80065917A /* UVModel.xcdatamodeld in Sources */,
+				1B3F648513CEC6190065917A /* UVBlock.m in Sources */,
+				1B3F648813CEC6260065917A /* UVChar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +581,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B3F648113CEC5C80065917A /* UVModel.xcdatamodel */,
+			);
+			currentVersion = 1B3F648113CEC5C80065917A /* UVModel.xcdatamodel */;
+			path = UVModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1B1A96C113C08F5C001E2AD5 /* Project object */;
 }
