@@ -152,8 +152,9 @@
 		1B1A96D413C08F5D001E2AD5 /* UnicodeViewer */ = {
 			isa = PBXGroup;
 			children = (
+				1BAC57B613CD66AB00B3B889 /* Model */,
 				5563972513CC99B000348B25 /* 3rdparty */,
-				1BD38F2413CA3ED00017FC59 /* resources */,
+				1BD38F2413CA3ED00017FC59 /* Resources */,
 				1B1A96DD13C08F5D001E2AD5 /* UnicodeViewerAppDelegate.h */,
 				1B1A96DE13C08F5D001E2AD5 /* UnicodeViewerAppDelegate.m */,
 				1B1A96E013C08F5D001E2AD5 /* MainWindow.xib */,
@@ -202,7 +203,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1BD38F2413CA3ED00017FC59 /* resources */ = {
+		1BAC57B613CD66AB00B3B889 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1BD38F2413CA3ED00017FC59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				5563972F13CCA0F300348B25 /* logo-512x512.png */,
@@ -219,7 +227,7 @@
 				1BD38F2813CA414A0017FC59 /* tag-l.png */,
 				1BCCF22413CC3526002582FB /* tag-d.png */,
 			);
-			name = resources;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		5563972513CC99B000348B25 /* 3rdparty */ = {
