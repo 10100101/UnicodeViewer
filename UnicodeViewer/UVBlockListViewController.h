@@ -10,7 +10,7 @@
 
 
 @interface UVBlockListViewController : UITableViewController {
-    
+    NSArray *blocks;
 }
 
 @end

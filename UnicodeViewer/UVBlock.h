@@ -14,7 +14,7 @@
 @private
 }
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * range_lowr;
+@property (nonatomic, retain) NSNumber * range_lower;
 @property (nonatomic, retain) NSNumber * range_upper;
 
 @end

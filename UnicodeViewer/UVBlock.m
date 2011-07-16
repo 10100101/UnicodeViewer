@@ -11,7 +11,7 @@
 
 @implementation UVBlock
 @dynamic name;
-@dynamic range_lowr;
+@dynamic range_lower;
 @dynamic range_upper;
 
 @end

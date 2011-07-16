@@ -8,6 +8,9 @@
 
 #import "UVBlockListViewController.h"
 #import "UVDataImporter.h"
+#import "UnicodeViewerAppDelegate.h"
+#import "UVBlockRepository.h"
+#import "UVBlock.h"
 
 @implementation UVBlockListViewController
 
@@ -22,6 +25,7 @@
 
 - (void)dealloc
 {
+    [blocks release];
     [super dealloc];
 }
 
@@ -39,9 +43,15 @@
 {
     [super viewDidLoad];
     
-    UVDataImporter *dataImporter = [[UVDataImporter alloc] init];
-    [dataImporter importBlockData:@"uni-blocks-6.0.0"];
-
+    NSManagedObjectContext *context = [(UnicodeViewerAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    UVBlockRepository *reposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:context];
+    blocks = [[reposiory listAllBlocks] retain]; 
+    if (blocks == nil) {
+        [UVDataImporter importBlockData:@"uni-blocks-6.0.0" withContext:context];
+        blocks = [[reposiory listAllBlocks] retain]; 
+    }
+    [reposiory release];
+        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -86,28 +96,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [blocks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"UVBlockCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    UVBlock *currentBlock = (UVBlock *)[blocks objectAtIndex:indexPath.row];
+    cell.textLabel.text = currentBlock.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%06X ... %06X", [currentBlock.range_lower intValue], [currentBlock.range_upper intValue]];
     
     return cell;
 }

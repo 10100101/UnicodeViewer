@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 
 @interface UVDataImporter : NSObject {
     
 }
-- (void) importBlockData:(NSString *) name;
++ (void) importBlockData:(NSString *) name withContext:(NSManagedObjectContext *) context;
 
 @end

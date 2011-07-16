@@ -7,12 +7,13 @@
 //
 
 #import "UVDataImporter.h"
-
+#import "UVBlock.h"
+#import "UnicodeViewerAppDelegate.h"
 
 @implementation UVDataImporter
 
 
-- (void) importBlockData:(NSString *) name {
++ (void) importBlockData:(NSString *) name withContext:(NSManagedObjectContext *)context {
     NSString *infoSouceFile = [[NSBundle mainBundle] pathForResource:name ofType:@"txt"];
     NSLog(@"Reading file %@, path %@", name, infoSouceFile);
     NSString *blocksRaw = [NSString stringWithContentsOfFile:infoSouceFile encoding:NSUTF8StringEncoding error:NULL];
@@ -30,10 +31,18 @@
             unsigned long long rangeUpper;
             [[NSScanner scannerWithString:[range objectAtIndex:0]] scanHexLongLong:&rangeLower];
             [[NSScanner scannerWithString:[range objectAtIndex:1]] scanHexLongLong:&rangeUpper];
-            NSInteger lower = [[NSNumber numberWithUnsignedLong:rangeLower] integerValue];
-            NSInteger upper = [[NSNumber numberWithUnsignedLong:rangeUpper] integerValue];
-            NSLog(@"name %@, lower %X, upper %X", rangeName, lower, upper);
+            NSNumber *lower = [NSNumber numberWithUnsignedLong:rangeLower];
+            NSNumber *upper = [NSNumber numberWithUnsignedLong:rangeUpper];
+            
+            UVBlock *block = (UVBlock *)[NSEntityDescription insertNewObjectForEntityForName:@"UVBlock" inManagedObjectContext:context];
+            [block setName:rangeName];
+            [block setRange_lower:lower];
+            [block setRange_upper:upper];
         }
+    }
+    NSError *error = nil; 
+    if (![context save:&error]) {
+        NSLog(@"Error saving managed objects: %@", error);
     }
 }
 
