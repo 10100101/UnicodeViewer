@@ -49,6 +49,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem.title = @"Unicodes";
+    
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
     hexLabel.text       = [NSString stringWithFormat:@"U+%X", unicode];
     htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];

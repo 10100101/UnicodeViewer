@@ -11,6 +11,7 @@
 #import "UnicodeViewerAppDelegate.h"
 #import "UVBlockRepository.h"
 #import "UVBlock.h"
+#import "UnicodeListViewController.h"
 
 @implementation UVBlockListViewController
 
@@ -46,7 +47,7 @@
     NSManagedObjectContext *context = [(UnicodeViewerAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     UVBlockRepository *reposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:context];
     blocks = [[reposiory listAllBlocks] retain]; 
-    if (blocks == nil) {
+    if (blocks == nil || [blocks count] == 0) {
         [UVDataImporter importBlockData:@"uni-blocks-6.0.0" withContext:context];
         blocks = [[reposiory listAllBlocks] retain]; 
     }
@@ -163,14 +164,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    UnicodeListViewController *listViewController = [[UnicodeListViewController alloc] initWithNibName:nil bundle:nil];
+    listViewController.block = [blocks objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:listViewController animated:YES];
+    [listViewController release];
 }
 
 @end

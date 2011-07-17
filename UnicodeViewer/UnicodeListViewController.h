@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UVBlock.h"
 
 @interface UnicodeListViewController : UITableViewController {
     
 }
+
+@property(nonatomic, retain) UVBlock *block;
 
 @end

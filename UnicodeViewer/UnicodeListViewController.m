@@ -12,6 +12,9 @@
 
 @implementation UnicodeListViewController
 
+@synthesize block;
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -23,6 +26,7 @@
 
 - (void)dealloc
 {
+    [block release];
     [super dealloc];
 }
 
@@ -39,6 +43,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.backBarButtonItem.title = @"Blocks";
+    self.navigationItem.title = block.name;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -91,7 +98,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return (0x27B7 - 0x2701);
+    return ([block.range_upper intValue] - [block.range_lower intValue] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,9 +109,9 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    int c = indexPath.row + 0x2701;
+    int c = indexPath.row + [block.range_lower intValue];
     cell.textLabel.text = [NSString stringWithFormat:@"%C", c]; 
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%X (%d)", c, c]; 
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
     
     return cell;
 }
@@ -153,7 +160,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
-    detailViewController.unicode = 0x2701 + indexPath.row;
+    detailViewController.unicode = [block.range_lower intValue] + indexPath.row;
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 }
