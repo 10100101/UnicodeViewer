@@ -15,7 +15,7 @@
 }
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * value;
-@property (nonatomic, retain) NSString * valueHEx;
+@property (nonatomic, retain) NSString * valueHex;
 @property (nonatomic, retain) NSNumber * isFavorit;
 
 @end

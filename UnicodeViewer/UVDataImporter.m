@@ -9,11 +9,12 @@
 #import "UVDataImporter.h"
 #import "UVBlock.h"
 #import "UnicodeViewerAppDelegate.h"
+#import "UVCharDataXMLImporterDelegate.h"
 
 @implementation UVDataImporter
 
 
-+ (void) importBlockData:(NSString *) name withContext:(NSManagedObjectContext *)context {
++ (void) importBlockData:(NSString *) name withRepository:(UVBlockRepository *)repository {
     NSString *infoSouceFile = [[NSBundle mainBundle] pathForResource:name ofType:@"txt"];
     NSLog(@"Reading file %@, path %@", name, infoSouceFile);
     NSString *blocksRaw = [NSString stringWithContentsOfFile:infoSouceFile encoding:NSUTF8StringEncoding error:NULL];
@@ -34,16 +35,22 @@
             NSNumber *lower = [NSNumber numberWithUnsignedLong:rangeLower];
             NSNumber *upper = [NSNumber numberWithUnsignedLong:rangeUpper];
             
-            UVBlock *block = (UVBlock *)[NSEntityDescription insertNewObjectForEntityForName:@"UVBlock" inManagedObjectContext:context];
-            [block setName:rangeName];
-            [block setRange_lower:lower];
-            [block setRange_upper:upper];
+            UVBlock *block = [repository insertBlockWithName:rangeName from:lower to:upper];
+            NSLog(@"inserted block %@", block);
         }
     }
-    NSError *error = nil; 
-    if (![context save:&error]) {
-        NSLog(@"Error saving managed objects: %@", error);
+}
+
++ (void) importCharData:(NSString *)name withRepository:(UVCharRepository *)repository {
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:name withExtension:@"xml"]];
+    UVCharDataXMLImporterDelegate *delegate = [[UVCharDataXMLImporterDelegate alloc] initWithRepository:repository];
+    [parser setDelegate:delegate];
+    
+    // start parsing
+    if (![parser parse]) {
+        NSLog(@"Error parsing xml: %@", [parser parserError]);
     }
+    [delegate release];
 }
 
 

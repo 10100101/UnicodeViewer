@@ -8,8 +8,9 @@
 
 #import "UVBlockListViewController.h"
 #import "UVDataImporter.h"
-#import "UnicodeViewerAppDelegate.h"
+#import "UVCoreDataHelp.h"
 #import "UVBlockRepository.h"
+#import "UVCharRepository.h"
 #import "UVBlock.h"
 #import "UnicodeListViewController.h"
 
@@ -44,14 +45,17 @@
 {
     [super viewDidLoad];
     
-    NSManagedObjectContext *context = [(UnicodeViewerAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    UVBlockRepository *reposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:context];
-    blocks = [[reposiory listAllBlocks] retain]; 
+    UVBlockRepository *blockReposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    UVCharRepository *charReposiory = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    blocks = [[blockReposiory listAllBlocks] retain]; 
     if (blocks == nil || [blocks count] == 0) {
-        [UVDataImporter importBlockData:@"uni-blocks-6.0.0" withContext:context];
-        blocks = [[reposiory listAllBlocks] retain]; 
+        [UVDataImporter importBlockData:@"uni-blocks-6.0.0" withRepository:blockReposiory];
+        blocks = [[blockReposiory listAllBlocks] retain];
+        
+        [UVDataImporter importCharData:@"uni-grouped-6.0.0" withRepository:charReposiory];
     }
-    [reposiory release];
+    [blockReposiory release];
+    [charReposiory release];
         
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -116,7 +120,7 @@
     
     UVBlock *currentBlock = (UVBlock *)[blocks objectAtIndex:indexPath.row];
     cell.textLabel.text = currentBlock.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%06X ... %06X", [currentBlock.range_lower intValue], [currentBlock.range_upper intValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%06X ... %06X", [currentBlock.rangeLower intValue], [currentBlock.rangeUpper intValue]];
     
     return cell;
 }

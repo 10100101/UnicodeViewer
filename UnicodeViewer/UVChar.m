@@ -12,7 +12,7 @@
 @implementation UVChar
 @dynamic name;
 @dynamic value;
-@dynamic valueHEx;
+@dynamic valueHex;
 @dynamic isFavorit;
 
 @end

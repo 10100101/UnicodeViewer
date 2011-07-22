@@ -98,7 +98,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return ([block.range_upper intValue] - [block.range_lower intValue] + 1);
+    return ([block.rangeUpper intValue] - [block.rangeLower intValue] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +109,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    int c = indexPath.row + [block.range_lower intValue];
+    int c = indexPath.row + [block.rangeLower intValue];
     cell.textLabel.text = [NSString stringWithFormat:@"%C", c]; 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
     
@@ -160,7 +160,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
-    detailViewController.unicode = [block.range_lower intValue] + indexPath.row;
+    detailViewController.unicode = [block.rangeLower intValue] + indexPath.row;
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 }

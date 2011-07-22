@@ -166,7 +166,8 @@
          
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        //abort();
     }    
     
     return __persistentStoreCoordinator;

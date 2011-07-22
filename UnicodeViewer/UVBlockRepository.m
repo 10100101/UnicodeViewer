@@ -21,6 +21,18 @@
     return self;
 }
 
+- (UVBlock *) insertBlockWithName:(NSString *)name from:(NSNumber *)from to:(NSNumber *)to {
+    UVBlock *block = (UVBlock *)[NSEntityDescription insertNewObjectForEntityForName:@"UVBlock" inManagedObjectContext:self.managedObjectContext];
+    [block setName:name];
+    [block setRangeLower:from];
+    [block setRangeUpper:to];
+    NSError *error = nil; 
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error saving managed objects: %@", error);
+        return nil;
+    }
+    return block;
+}
 
 - (NSArray *) listAllBlocks {
     NSArray *result = nil;
@@ -31,7 +43,7 @@
     NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
     [request setEntity:entityDescription];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"range_lower" ascending:YES];
+                                        initWithKey:@"rangeLower" ascending:YES];
     [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [sortDescriptor release];
     
