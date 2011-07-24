@@ -45,6 +45,8 @@
 {
     [super viewDidLoad];
     
+    // Init Database
+    /*
     UVBlockRepository *blockReposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     UVCharRepository *charReposiory = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     blocks = [[blockReposiory listAllBlocks] retain]; 
@@ -56,7 +58,7 @@
     }
     [blockReposiory release];
     [charReposiory release];
-        
+      */  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

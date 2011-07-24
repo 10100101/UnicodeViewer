@@ -23,6 +23,7 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+- (NSURL *)applicationDocumentsDirectoryURL;
+- (NSString *)applicationDocumentsDirectoryPath;
 
 @end
