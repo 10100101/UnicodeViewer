@@ -10,7 +10,7 @@
 #import "UVBlock.h"
 
 @interface UnicodeListViewController : UITableViewController {
-    
+    NSArray *charInfos;
 }
 
 @property(nonatomic, retain) UVBlock *block;

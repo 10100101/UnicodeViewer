@@ -8,7 +8,8 @@
 
 #import "UnicodeListViewController.h"
 #import "UnicodeDetailViewController.h"
-
+#import "UVCharRepository.h"
+#import "UVCoreDataHelp.h"
 
 @implementation UnicodeListViewController
 
@@ -26,6 +27,7 @@
 
 - (void)dealloc
 {
+    [charInfos release];
     [block release];
     [super dealloc];
 }
@@ -47,6 +49,10 @@
     self.navigationItem.backBarButtonItem.title = @"Blocks";
     self.navigationItem.title = block.name;
 
+    // Init char infos
+    UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    charInfos = [[repository listCharsFrom:block.rangeLower to:block.rangeUpper] retain];    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -98,7 +104,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return ([block.rangeUpper intValue] - [block.rangeLower intValue] + 1);
+    return [charInfos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,8 +115,10 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    int c = indexPath.row + [block.rangeLower intValue];
-    cell.textLabel.text = [NSString stringWithFormat:@"%C", c]; 
+    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
+    int c = [[charInfo value] intValue];
+    NSString *name = charInfo.name == nil ? @"": charInfo.name;
+    cell.textLabel.text = [NSString stringWithFormat:@"%C %@", c, name]; 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
     
     return cell;

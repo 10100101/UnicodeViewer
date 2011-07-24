@@ -18,4 +18,7 @@
 - (id) initWithManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (UVChar *) insertCharWithNumber:(NSNumber *) number name:(NSString *) name;
+
+- (NSArray *) listCharsFrom:(NSNumber *) from to:(NSNumber *) to;
+
 @end

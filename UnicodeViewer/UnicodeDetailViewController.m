@@ -52,7 +52,7 @@
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
-    hexLabel.text       = [NSString stringWithFormat:@"U+%X", unicode];
+    hexLabel.text       = [NSString stringWithFormat:@"U+%06X", unicode];
     htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];
 
     UIBarButtonItem *addToFavs = 

@@ -45,11 +45,11 @@
 {
     [super viewDidLoad];
     
+    UVBlockRepository *blockReposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    blocks = [[blockReposiory listAllBlocks] retain]; 
     // Init Database
     /*
-    UVBlockRepository *blockReposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     UVCharRepository *charReposiory = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
-    blocks = [[blockReposiory listAllBlocks] retain]; 
     if (blocks == nil || [blocks count] == 0) {
         [UVDataImporter importBlockData:@"uni-blocks-6.0.0" withRepository:blockReposiory];
         blocks = [[blockReposiory listAllBlocks] retain];
