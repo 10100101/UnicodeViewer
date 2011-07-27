@@ -12,7 +12,9 @@
 @implementation UnicodeDetailViewController
 
 @synthesize unicode;
+@synthesize name;
 @synthesize charLabel; 
+@synthesize charNameLabel; 
 @synthesize hexLabel; 
 @synthesize htmlEntityLabe;
 
@@ -52,8 +54,13 @@
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
+    if (name) {
+        charNameLabel.text = name;
+    } else {
+        charNameLabel.text = @"";
+    }
     hexLabel.text       = [NSString stringWithFormat:@"U+%06X", unicode];
-    htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];
+    htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];    
 
     UIBarButtonItem *addToFavs = 
     [[UIBarButtonItem alloc] 

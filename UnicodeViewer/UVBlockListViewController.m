@@ -122,7 +122,7 @@
     
     UVBlock *currentBlock = (UVBlock *)[blocks objectAtIndex:indexPath.row];
     cell.textLabel.text = currentBlock.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%06X ... %06X", [currentBlock.rangeLower intValue], [currentBlock.rangeUpper intValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X ... U+%06X", [currentBlock.rangeLower intValue], [currentBlock.rangeUpper intValue]];
     
     return cell;
 }

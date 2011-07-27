@@ -51,7 +51,12 @@
 
     // Init char infos
     UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
-    charInfos = [[repository listCharsFrom:block.rangeLower to:block.rangeUpper] retain];    
+    NSArray *chars = [repository listCharsFrom:block.rangeLower to:block.rangeUpper];    
+    charInfos = [[NSMutableDictionary alloc] initWithCapacity:[chars count]];
+    for (int i = 0; i < [chars count]; i++) {
+        [charInfos setObject:[chars objectAtIndex:i] forKey:[(UVChar*)[chars objectAtIndex:i] value]];
+    }
+    //[chars release];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -104,7 +109,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [charInfos count];
+    return ([block.rangeUpper intValue] - [block.rangeLower intValue] + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,12 +120,16 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
-    int c = [[charInfo value] intValue];
-    NSString *name = charInfo.name == nil ? @"": charInfo.name;
-    cell.textLabel.text = [NSString stringWithFormat:@"%C %@", c, name]; 
+    int c = indexPath.row + [block.rangeLower intValue];
+    UVChar *charInfo = (UVChar *)[charInfos objectForKey:[NSNumber numberWithInt:c]];
+    if (charInfo) {
+        NSString *name = charInfo.name == nil ? @"": charInfo.name;
+        cell.textLabel.text = [NSString stringWithFormat:@"%C %@", c, name]; 
+    } else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%C", c];     
+    }
     cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
-    
+        
     return cell;
 }
 
@@ -168,7 +177,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
-    detailViewController.unicode = [block.rangeLower intValue] + indexPath.row;
+    int c = [block.rangeLower intValue] + indexPath.row;
+    detailViewController.unicode = c;
+    detailViewController.name    = [(UVChar *)[charInfos objectForKey:[NSNumber numberWithInt:c]] name];
+
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
 }
