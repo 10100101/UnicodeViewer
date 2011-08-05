@@ -72,6 +72,7 @@
     for (int i = 0; i < [chars count]; i++) {
         [charInfos setObject:[chars objectAtIndex:i] forKey:[(UVChar*)[chars objectAtIndex:i] value]];
     }
+    [repository release];
     //[chars release];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -188,14 +189,27 @@
 }
 */
 
+#pragma mark - Favorite state delegate
+
+- (void) favoriteStateDidChange:(UnicodeDetailViewController *)controller forCharWithNumber:(NSNumber *)number {
+    UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    UVChar *charInfo = [repository toggleFavForCharWithNumer:number];
+    if (charInfo) {
+        [charInfos setObject:charInfo forKey:number];
+    }
+    [repository release];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
     int c = [block.rangeLower intValue] + indexPath.row;
-    detailViewController.unicode = c;
-    detailViewController.name    = [(UVChar *)[charInfos objectForKey:[NSNumber numberWithInt:c]] name];
+    UVChar *charInfo = (UVChar *)[charInfos objectForKey:[NSNumber numberWithInt:c]];
+    detailViewController.unicode  = c;
+    detailViewController.charInfo = charInfo;
+    detailViewController.delegate = self;
 
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];

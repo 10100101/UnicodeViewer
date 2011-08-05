@@ -53,6 +53,27 @@
     return nil;
 }
 
+- (UVChar *) findCharWithNumber:(NSNumber *) number {
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"UVChar" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"value == %@", number];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"Error fetching chars: %@", error);
+        return nil;
+    }
+    return [array objectAtIndex:0];
+}
+
+
 - (NSArray *) listCharsFrom:(NSNumber *) from to:(NSNumber *) to {
     NSManagedObjectContext *moc = self.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription
@@ -78,6 +99,21 @@
     }
     return array;
 }
+
+- (UVChar *) toggleFavForCharWithNumer:(NSNumber *) number {
+    UVChar *charInfo = [self findCharWithNumber:number];
+    if (!charInfo) {
+        charInfo = [self insertCharWithNumber:number name:nil];
+    }
+    [charInfo setIsFavorit:[NSNumber numberWithBool:![charInfo.isFavorit boolValue]]];
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error saving managed object: %@", error);
+        return nil;
+    }
+    return charInfo;
+}
+
 
 
 

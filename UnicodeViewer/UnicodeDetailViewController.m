@@ -28,11 +28,12 @@
 @implementation UnicodeDetailViewController
 
 @synthesize unicode;
-@synthesize name;
+@synthesize charInfo;
 @synthesize charLabel; 
 @synthesize charNameLabel; 
 @synthesize hexLabel; 
 @synthesize htmlEntityLabe;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,7 +60,17 @@
 #pragma mark - Actions
 
 - (IBAction) addToFavorites:(id) sender {
-    //TODO implementieren
+    NSString *imageName = @"heart-d";
+    if (charInfo) {
+        if ([charInfo.isFavorit boolValue]) {
+            imageName = @"heart-l";
+        }
+    }    
+    self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:imageName];
+    
+    if (delegate) {
+        [delegate favoriteStateDidChange:self forCharWithNumber:[NSNumber numberWithInt:unicode]];
+    }
 }
 
 #pragma mark - View lifecycle
@@ -70,18 +81,25 @@
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
-    if (name) {
-        charNameLabel.text = name;
+    if (charInfo) {
+        charNameLabel.text = charInfo.name;
     } else {
         charNameLabel.text = @"";
     }
     hexLabel.text       = [NSString stringWithFormat:@"U+%06X", unicode];
     htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];    
 
+    NSString *imageName = @"heart-l";
+    if (charInfo) {
+        if ([charInfo.isFavorit boolValue]) {
+            imageName = @"heart-d";
+        }
+    }
+    
     UIBarButtonItem *addToFavs = 
     [[UIBarButtonItem alloc] 
         initWithImage:[UIImage 
-        imageNamed:@"heart-l"] 
+        imageNamed:imageName] 
         style:UIBarButtonItemStylePlain 
         target:self 
         action:@selector(addToFavorites:)];

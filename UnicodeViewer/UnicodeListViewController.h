@@ -24,8 +24,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UVBlock.h"
+#import "UnicodeDetailViewController.h"
 
-@interface UnicodeListViewController : UITableViewController {
+@interface UnicodeListViewController : UITableViewController <UVFavoriteStateChangedDelegate> {
     NSMutableDictionary *charInfos;
 }
 

@@ -23,6 +23,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UVChar.h"
+
+@protocol UVFavoriteStateChangedDelegate;
+
 
 
 @interface UnicodeDetailViewController : UIViewController {
@@ -35,6 +39,13 @@
 @property(nonatomic, assign) IBOutlet UILabel *htmlEntityLabe; 
 
 @property(nonatomic, assign) int unicode;
-@property(nonatomic, assign) NSString *name;
+@property(nonatomic, assign) UVChar *charInfo;
+@property(nonatomic, assign) id<UVFavoriteStateChangedDelegate> delegate;
+
+@end
+
+@protocol UVFavoriteStateChangedDelegate
+
+-(void) favoriteStateDidChange:(UnicodeDetailViewController *) controller forCharWithNumber: (NSNumber *) number;
 
 @end
