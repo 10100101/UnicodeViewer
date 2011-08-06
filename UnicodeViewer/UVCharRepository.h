@@ -29,16 +29,18 @@
 @interface UVCharRepository : NSObject {
 
 }
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSManagedObjectContext* managedObjectContext;
 
-- (id) initWithManagedObjectContext:(NSManagedObjectContext *)context;
+- (id) initWithManagedObjectContext:(NSManagedObjectContext*)context;
 
-- (UVChar *) insertCharWithNumber:(NSNumber *) number name:(NSString *) name;
+- (UVChar*) insertCharWithNumber:(NSNumber*) number name:(NSString*) name;
 
-- (NSArray *) listCharsFrom:(NSNumber *) from to:(NSNumber *) to;
+- (NSArray*) listCharsFrom:(NSNumber*) from to:(NSNumber*) to;
 
-- (UVChar *) toggleFavForCharWithNumer:(NSNumber *) number;
+- (NSArray*) findFavorites;
 
-- (UVChar *) findCharWithNumber:(NSNumber *) number;
+- (UVChar*) toggleFavForCharWithNumer:(NSNumber*) number;
+
+- (UVChar*) findCharWithNumber:(NSNumber*) number;
 
 @end
