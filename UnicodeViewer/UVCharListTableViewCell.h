@@ -2,7 +2,7 @@
 //  UnicodeListViewController.h
 //  UnicodeViewer
 //
-//  Created by Ulrich von Poblotzki on 03.07.11.
+//  Created by Ulrich von Poblotzki on 11.08.11.
 //
 //  Copyright 2011 Ulrich von Poblotzki.
 //
@@ -23,15 +23,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UVBlock.h"
-#import "UnicodeDetailViewController.h"
-#import "UVCharListTableViewCell.h"
 
-@interface UnicodeListViewController : UITableViewController <UVFavoriteStateChangedDelegate> {
-    NSMutableDictionary *charInfos;
-}
+@interface UVCharListTableViewCell : UITableViewCell 
 
-@property(nonatomic, retain) UVBlock *block;
-@property(nonatomic, assign) IBOutlet UVCharListTableViewCell *charListCell;
+@property(nonatomic, retain) IBOutlet UILabel *unicodeNameLabel; 
+@property(nonatomic, retain) IBOutlet UILabel *charHexValueLabel;
+@property(nonatomic, retain) IBOutlet UILabel *charLabel;
 
 @end

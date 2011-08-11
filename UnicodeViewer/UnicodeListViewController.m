@@ -26,11 +26,12 @@
 #import "UnicodeDetailViewController.h"
 #import "UVCharRepository.h"
 #import "UVCoreDataHelp.h"
+#import "UVCharListTableViewCell.h"
 
 @implementation UnicodeListViewController
 
 @synthesize block;
-
+@synthesize charListCell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -65,6 +66,8 @@
     self.navigationItem.backBarButtonItem.title = @"Blocks";
     self.navigationItem.title = block.name;
 
+    self.tableView.rowHeight = 50;
+    
     // Init char infos
     UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     NSArray *chars = [repository listCharsFrom:block.rangeLower to:block.rangeUpper];    
@@ -133,19 +136,21 @@
 {
     static NSString *CellIdentifier = @"UnicodeCharCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UVCharListTableViewCell *cell = (UVCharListTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        [[NSBundle mainBundle] loadNibNamed:@"UVCharListTableViewCell" owner:self options:nil];
+        cell = charListCell;
     }
     int c = indexPath.row + [block.rangeLower intValue];
     UVChar *charInfo = (UVChar *)[charInfos objectForKey:[NSNumber numberWithInt:c]];
     if (charInfo) {
         NSString *name = charInfo.name == nil ? @"": charInfo.name;
-        cell.textLabel.text = [NSString stringWithFormat:@"%C %@", c, name]; 
+        cell.unicodeNameLabel.text = name; 
     } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"%C", c];     
+        cell.unicodeNameLabel.text = @"";     
     }
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
+    cell.charLabel.text         = [NSString stringWithFormat:@"%C", c];
+    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%06X", c]; 
         
     return cell;
 }
