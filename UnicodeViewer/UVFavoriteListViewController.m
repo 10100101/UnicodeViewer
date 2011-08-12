@@ -57,6 +57,8 @@
 {
     [super viewDidLoad];
     [self loadData];
+    
+    self.tableView.rowHeight = 50;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

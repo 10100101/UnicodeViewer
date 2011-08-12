@@ -136,6 +136,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     UVBlock *currentBlock = (UVBlock *)[blocks objectAtIndex:indexPath.row];
     cell.textLabel.text = currentBlock.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X ... U+%06X", [currentBlock.rangeLower intValue], [currentBlock.rangeUpper intValue]];
