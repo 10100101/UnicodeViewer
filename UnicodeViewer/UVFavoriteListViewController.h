@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "UnicodeDetailViewController.h"
+#import "UVCharListTableViewCell.h"
 
 @interface UVFavoriteListViewController : UITableViewController <UVFavoriteStateChangedDelegate> {
     NSMutableArray *charInfos;
 }
+
+@property(nonatomic, assign) IBOutlet UVCharListTableViewCell *charListCell;
+
 @end

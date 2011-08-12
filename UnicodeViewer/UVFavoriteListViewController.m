@@ -18,7 +18,11 @@
 
 @end
 
+
 @implementation UVFavoriteListViewController
+
+@synthesize charListCell;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -111,19 +115,21 @@
 {
     static NSString *CellIdentifier = @"UnicodeCharCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UVCharListTableViewCell *cell = (UVCharListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        [[NSBundle mainBundle] loadNibNamed:@"UVCharListTableViewCell" owner:self options:nil];
+        cell = charListCell;
     }
     UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
     int c = [charInfo.value intValue];
+    cell.charLabel.text = [NSString stringWithFormat:@"%C", c];     
     if (charInfo) {
         NSString *name = charInfo.name == nil ? @"": charInfo.name;
-        cell.textLabel.text = [NSString stringWithFormat:@"%C %@", c, name]; 
+        cell.unicodeNameLabel.text = name; 
     } else {
-        cell.textLabel.text = [NSString stringWithFormat:@"%C", c];     
+        cell.unicodeNameLabel.text = @""; 
     }
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%06X (%d)", c, c]; 
+    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%06X", c]; 
     
     return cell;
 }
