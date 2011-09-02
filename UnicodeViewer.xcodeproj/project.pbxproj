@@ -45,6 +45,8 @@
 		1BD38F2913CA414B0017FC59 /* tag-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD38F2813CA414A0017FC59 /* tag-l.png */; };
 		1BF3E4EF13F40520009F401E /* UVCharListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */; };
 		1BF3E4F313F40F62009F401E /* UVCharListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3E4F213F40F62009F401E /* UVCharListTableViewCell.m */; };
+		551A13CF14116261000053DC /* UVSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551A13CD14116261000053DC /* UVSearchViewController.m */; };
+		551A13D014116261000053DC /* UVSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A13CE14116261000053DC /* UVSearchViewController.xib */; };
 		5563972813CC99CB00348B25 /* index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972713CC99CB00348B25 /* index-cards.png */; };
 		5563972A13CC99E000348B25 /* cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972913CC99E000348B25 /* cabinet.png */; };
 		5563972C13CC99F400348B25 /* shoebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972B13CC99F400348B25 /* shoebox.png */; };
@@ -123,6 +125,9 @@
 		1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVCharListTableViewCell.xib; sourceTree = "<group>"; };
 		1BF3E4F113F40F61009F401E /* UVCharListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharListTableViewCell.h; sourceTree = "<group>"; };
 		1BF3E4F213F40F62009F401E /* UVCharListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharListTableViewCell.m; sourceTree = "<group>"; };
+		551A13CC14116261000053DC /* UVSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVSearchViewController.h; sourceTree = "<group>"; };
+		551A13CD14116261000053DC /* UVSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVSearchViewController.m; sourceTree = "<group>"; };
+		551A13CE14116261000053DC /* UVSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVSearchViewController.xib; sourceTree = "<group>"; };
 		5563972713CC99CB00348B25 /* index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index-cards.png"; sourceTree = "<group>"; };
 		5563972913CC99E000348B25 /* cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cabinet.png; sourceTree = "<group>"; };
 		5563972B13CC99F400348B25 /* shoebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoebox.png; sourceTree = "<group>"; };
@@ -201,6 +206,9 @@
 				1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */,
 				1BF3E4F113F40F61009F401E /* UVCharListTableViewCell.h */,
 				1BF3E4F213F40F62009F401E /* UVCharListTableViewCell.m */,
+				551A13CC14116261000053DC /* UVSearchViewController.h */,
+				551A13CD14116261000053DC /* UVSearchViewController.m */,
+				551A13CE14116261000053DC /* UVSearchViewController.xib */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -416,6 +424,7 @@
 				1B06236C13D9D9E70013C59D /* UVDB.sqlite in Resources */,
 				556A157513EDAC9A00264E95 /* UVFavoriteListViewController.xib in Resources */,
 				1BF3E4EF13F40520009F401E /* UVCharListTableViewCell.xib in Resources */,
+				551A13D014116261000053DC /* UVSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +476,7 @@
 				1B06236A13D9CBC40013C59D /* UVCoreDataHelp.m in Sources */,
 				556A157413EDAC9A00264E95 /* UVFavoriteListViewController.m in Sources */,
 				1BF3E4F313F40F62009F401E /* UVCharListTableViewCell.m in Sources */,
+				551A13CF14116261000053DC /* UVSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
