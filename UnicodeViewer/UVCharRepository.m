@@ -70,7 +70,11 @@
         NSLog(@"Error fetching chars: %@", error);
         return nil;
     }
-    return [array objectAtIndex:0];
+    if ([array count] > 0) {
+        return [array objectAtIndex:0];
+    } else {
+        return nil;
+    }
 }
 
 
