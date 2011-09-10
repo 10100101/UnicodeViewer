@@ -23,8 +23,14 @@
 //
 
 #import "UVSearchViewController.h"
+#import "UVCharRepository.h"
+#import "UVCoreDataHelp.h"
+#import "UVChar.h"
 
 @implementation UVSearchViewController
+
+@synthesize charInfos;
+@synthesize charListCell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -93,28 +99,35 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [charInfos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"UnicodeCharCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UVCharListTableViewCell *cell = (UVCharListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        [[NSBundle mainBundle] loadNibNamed:@"UVCharListTableViewCell" owner:self options:nil];
+        cell = charListCell;
     }
-    
-    // Configure the cell...
+    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
+    int c = [charInfo.value intValue];
+    cell.charLabel.text = [NSString stringWithFormat:@"%C", c];     
+    if (charInfo) {
+        NSString *name = charInfo.name == nil ? @"": charInfo.name;
+        cell.unicodeNameLabel.text = name; 
+    } else {
+        cell.unicodeNameLabel.text = @""; 
+    }
+    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%06X", c]; 
     
     return cell;
 }
@@ -162,14 +175,46 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
+    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
+    detailViewController.unicode  = [charInfo.value intValue];
+    detailViewController.charInfo = charInfo;
+    detailViewController.delegate = self;
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
+}
+
+#pragma mark - UiSearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText length] == 1) {
+        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+        
+        NSNumber *c = [NSNumber numberWithInt:[searchText characterAtIndex:0]];
+        NSLog(@"Searched for %X", [c intValue]);
+        UVChar *charInfo = [repository findCharWithNumber:c];
+        if (charInfo) {
+            self.charInfos = [NSMutableArray arrayWithObject:charInfo];
+            [self.tableView reloadData];
+        }
+        [repository release];
+    }
+}
+
+#pragma mark - Favorite state delegate
+
+- (void) favoriteStateDidChange:(UnicodeDetailViewController *)controller forCharWithNumber:(NSNumber *)number {
+    UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    [repository toggleFavForCharWithNumer:number];
+    [repository release];
+}
+
+
+- (void) dealloc {
+    [charInfos release];
+
+    [super dealloc];
 }
 
 @end
