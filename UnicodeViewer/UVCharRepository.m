@@ -143,7 +143,35 @@
     return charInfo;
 }
 
+- (UVChar*) findCharWithID:(NSManagedObjectID *) objectID {
+    return (UVChar*)[self.managedObjectContext objectWithID:objectID];
+}
 
+- (NSArray *) findCharsWithNameOrHexValue:(NSString *) searchText {
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"UVChar" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(valueHex contains[cd] %@) OR (name contains[cd] %@)", searchText, searchText];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"value" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [sortDescriptor release];
+    
+    NSError *error = nil;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"Error fetching chars: %@", error);
+        return nil;
+    }
+    return array;
+}
 
 
 @end

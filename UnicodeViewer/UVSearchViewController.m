@@ -27,10 +27,18 @@
 #import "UVCoreDataHelp.h"
 #import "UVChar.h"
 
+@interface UVSearchViewController(Private)
+
+- (void) searchFor:(NSString *) searchText;
+- (void) updateData:(NSMutableArray *) data;
+    
+@end
+
 @implementation UVSearchViewController
 
 @synthesize charInfos;
 @synthesize charListCell;
+@synthesize operationQueue;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -93,6 +101,49 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) searchFor:(NSString *) searchText {
+    NSMutableArray *charInfoData = nil;    
+    if ([searchText length] == 1) {
+        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+        
+        NSNumber *c = [NSNumber numberWithInt:[searchText characterAtIndex:0]];
+        NSLog(@"Searched for %X", [c intValue]);
+        UVChar *charInfo = [repository findCharWithNumber:c];
+        charInfoData = [NSMutableArray arrayWithObject:[charInfo objectID]];
+        [repository release];
+    } else if ([searchText length] > 1) {
+        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+        
+        NSLog(@"Searched for %@", searchText);
+        NSArray *chars = [repository findCharsWithNameOrHexValue:searchText];
+        if (chars) {
+            charInfoData = [[NSMutableArray alloc] initWithCapacity:[chars count]];
+            for (NSInteger i = 0; i < [chars count]; i++) {
+                [charInfoData addObject:[[chars objectAtIndex:i] objectID]];
+            }            
+        }
+        [repository release];    
+    }
+    // Update Data
+    [self performSelectorOnMainThread:@selector(updateData:) withObject:charInfoData waitUntilDone:YES];
+}
+
+- (void) updateData:(NSMutableArray *)data {
+    if (data) {
+        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+        NSMutableArray *charInfosData = [[NSMutableArray alloc] initWithCapacity:[data count]];
+        for (NSInteger i = 0; i < [data count]; i++) {
+            [charInfosData addObject:[repository findCharWithID:[data objectAtIndex:i]]];
+        }
+        [repository release];
+        self.charInfos = charInfosData;        
+    } else {
+        self.charInfos = [[NSMutableArray alloc] init];    
+    }
+    [self.searchDisplayController.searchResultsTableView reloadData];
+    
 }
 
 #pragma mark - Table view data source
@@ -188,18 +239,12 @@
 #pragma mark - UiSearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if ([searchText length] == 1) {
-        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
-        
-        NSNumber *c = [NSNumber numberWithInt:[searchText characterAtIndex:0]];
-        NSLog(@"Searched for %X", [c intValue]);
-        UVChar *charInfo = [repository findCharWithNumber:c];
-        if (charInfo) {
-            self.charInfos = [NSMutableArray arrayWithObject:charInfo];
-            [self.tableView reloadData];
-        }
-        [repository release];
+    if (!self.operationQueue) {
+        self.operationQueue = [[NSOperationQueue alloc] init];
     }
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(searchFor:) object:searchText];
+    [self.operationQueue addOperation:operation];
+    [operation release];
 }
 
 #pragma mark - Favorite state delegate
@@ -213,6 +258,7 @@
 
 - (void) dealloc {
     [charInfos release];
+    [operationQueue release];
 
     [super dealloc];
 }

@@ -27,9 +27,10 @@
 #import "UVCharListTableViewCell.h"
 
 
-@interface UVSearchViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UVFavoriteStateChangedDelegate> 
+@interface UVSearchViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate, UVFavoriteStateChangedDelegate>
 
 @property(nonatomic, retain) NSMutableArray *charInfos; 
 @property(nonatomic, assign) IBOutlet UVCharListTableViewCell *charListCell;
+@property(nonatomic, retain) NSOperationQueue *operationQueue;
 
 @end
