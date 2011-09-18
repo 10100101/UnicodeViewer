@@ -131,6 +131,7 @@
 }
 
 - (void) updateData:(NSMutableArray *)data {
+    NSLog(@"Updating tableView with data");
     if (data) {
         UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
         NSMutableArray *charInfosData = [[NSMutableArray alloc] initWithCapacity:[data count]];
@@ -241,8 +242,10 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (!self.operationQueue) {
         self.operationQueue = [[NSOperationQueue alloc] init];
+        [self.operationQueue setMaxConcurrentOperationCount:1];
     }
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(searchFor:) object:searchText];
+    [self.operationQueue cancelAllOperations];
     [self.operationQueue addOperation:operation];
     [operation release];
 }
