@@ -63,6 +63,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.searchDisplayController.searchResultsTableView.rowHeight = 50;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

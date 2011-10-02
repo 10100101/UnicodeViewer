@@ -79,6 +79,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric.png"]];
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
     if (charInfo) {

@@ -65,6 +65,8 @@
 		559F3E0A13D0C83100874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0913D0C83100874BE4 /* CoreData.framework */; };
 		559F3E0C13D0C85900874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0B13D0C85900874BE4 /* CoreData.framework */; };
 		55BF533013D1EDAF000F4852 /* UVBlockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */; };
+		55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D51438F4D50081B790 /* ios-fabric.png */; };
+		55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D61438F4D50081B790 /* ios-fabric@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		559F3E0B13D0C85900874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		55BF532E13D1EDAF000F4852 /* UVBlockRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlockRepository.h; sourceTree = "<group>"; };
 		55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlockRepository.m; sourceTree = "<group>"; };
+		55CD98D51438F4D50081B790 /* ios-fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric.png"; sourceTree = "<group>"; };
+		55CD98D61438F4D50081B790 /* ios-fabric@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +346,8 @@
 		1BD38F2413CA3ED00017FC59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55CD98D51438F4D50081B790 /* ios-fabric.png */,
+				55CD98D61438F4D50081B790 /* ios-fabric@2x.png */,
 				1B06236B13D9D9E70013C59D /* UVDB.sqlite */,
 				1BAB62B413CF400A00EC0827 /* uni-grouped-6.0.0.xml */,
 				1BAB62B213CF3FDA00EC0827 /* uni-blocks-6.0.0.txt */,
@@ -502,6 +508,8 @@
 				556A157513EDAC9A00264E95 /* UVFavoriteListViewController.xib in Resources */,
 				1BF3E4EF13F40520009F401E /* UVCharListTableViewCell.xib in Resources */,
 				551A13D014116261000053DC /* UVSearchViewController.xib in Resources */,
+				55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */,
+				55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
