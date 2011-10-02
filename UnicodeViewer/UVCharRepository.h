@@ -43,6 +43,8 @@
 
 - (UVChar*) findCharWithNumber:(NSNumber*) number;
 
+- (NSArray*) findCharsWithNumbers:(NSArray*) numbers;
+
 - (UVChar*) findCharWithID:(NSManagedObjectID *) objectID;
 
 - (NSArray *) findCharsWithNameOrHexValue:(NSString *) searchText;

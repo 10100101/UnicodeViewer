@@ -24,6 +24,7 @@
 
 #import "UVSearchViewController.h"
 #import "UVCharRepository.h"
+#import "UVCharFullTextSearchService.h"
 #import "UVCoreDataHelp.h"
 #import "UVChar.h"
 
@@ -111,20 +112,21 @@
         NSNumber *c = [NSNumber numberWithInt:[searchText characterAtIndex:0]];
         NSLog(@"Searched for %X", [c intValue]);
         UVChar *charInfo = [repository findCharWithNumber:c];
-        charInfoData = [NSMutableArray arrayWithObject:[charInfo objectID]];
+        charInfoData = [NSMutableArray arrayWithObject:[charInfo value]];
         [repository release];
     } else if ([searchText length] > 1) {
-        UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+        //UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
         
         NSLog(@"Searched for %@", searchText);
-        NSArray *chars = [repository findCharsWithNameOrHexValue:searchText];
-        if (chars) {
-            charInfoData = [[NSMutableArray alloc] initWithCapacity:[chars count]];
-            for (NSInteger i = 0; i < [chars count]; i++) {
-                [charInfoData addObject:[[chars objectAtIndex:i] objectID]];
-            }            
-        }
-        [repository release];    
+        charInfoData = [NSMutableArray arrayWithArray:[UVCharFullTextSearchService findCharsWithNameOrHexValue:searchText]];
+        //NSArray *chars = [repository findCharsWithNameOrHexValue:searchText];
+        //if (chars) {
+        //    charInfoData = [[NSMutableArray alloc] initWithCapacity:[chars count]];
+        //    for (NSInteger i = 0; i < [chars count]; i++) {
+        //        [charInfoData addObject:[[chars objectAtIndex:i] objectID]];
+        //    }            
+        //}
+        //[repository release];    
     }
     // Update Data
     [self performSelectorOnMainThread:@selector(updateData:) withObject:charInfoData waitUntilDone:YES];
@@ -134,10 +136,7 @@
     NSLog(@"Updating tableView with data");
     if (data) {
         UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
-        NSMutableArray *charInfosData = [[NSMutableArray alloc] initWithCapacity:[data count]];
-        for (NSInteger i = 0; i < [data count]; i++) {
-            [charInfosData addObject:[repository findCharWithID:[data objectAtIndex:i]]];
-        }
+        NSMutableArray *charInfosData = [NSMutableArray arrayWithArray:[repository findCharsWithNumbers:data]];
         [repository release];
         self.charInfos = charInfosData;        
     } else {

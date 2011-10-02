@@ -56,6 +56,12 @@
 		5563973413CCA0F300348B25 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563973113CCA0F300348B25 /* logo-57x57.png */; };
 		556A157413EDAC9A00264E95 /* UVFavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A157213EDAC9A00264E95 /* UVFavoriteListViewController.m */; };
 		556A157513EDAC9A00264E95 /* UVFavoriteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556A157313EDAC9A00264E95 /* UVFavoriteListViewController.xib */; };
+		5573FB7F1437B5530015D001 /* libsqlite-3.6.23.1-fts3-ext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5573FB7C1437B53D0015D001 /* libsqlite-3.6.23.1-fts3-ext.a */; };
+		5573FB9D1437B69D0015D001 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5573FB9C1437B69D0015D001 /* libsqlite3.dylib */; };
+		5573FBB41437B7340015D001 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBAF1437B7340015D001 /* FMDatabase.m */; };
+		5573FBB51437B7340015D001 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB11437B7340015D001 /* FMDatabaseAdditions.m */; };
+		5573FBB61437B7340015D001 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB31437B7340015D001 /* FMResultSet.m */; };
+		5573FBB91437B77B0015D001 /* UVCharFullTextSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB81437B77B0015D001 /* UVCharFullTextSearchService.m */; };
 		559F3E0A13D0C83100874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0913D0C83100874BE4 /* CoreData.framework */; };
 		559F3E0C13D0C85900874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0B13D0C85900874BE4 /* CoreData.framework */; };
 		55BF533013D1EDAF000F4852 /* UVBlockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */; };
@@ -68,6 +74,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1B1A96C913C08F5C001E2AD5;
 			remoteInfo = UnicodeViewer;
+		};
+		5573FB7B1437B53D0015D001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 342BCD8711D922620069D2C2;
+			remoteInfo = "sqlite-3.6.23.1-fts3-ext";
+		};
+		5573FB7D1437B54D0015D001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 342BCD8611D922620069D2C2;
+			remoteInfo = "sqlite-3.6.23.1-fts3-ext";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -138,6 +158,17 @@
 		556A157113EDAC9A00264E95 /* UVFavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoriteListViewController.h; sourceTree = "<group>"; };
 		556A157213EDAC9A00264E95 /* UVFavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoriteListViewController.m; sourceTree = "<group>"; };
 		556A157313EDAC9A00264E95 /* UVFavoriteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVFavoriteListViewController.xib; sourceTree = "<group>"; };
+		5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "sqlite-fts3-extension.xcodeproj"; path = "../sqlite-fts3-extension-2.0/sqlite-fts3-extension.xcodeproj"; sourceTree = "<group>"; };
+		5573FB9C1437B69D0015D001 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5573FBAE1437B7340015D001 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5573FBAF1437B7340015D001 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5573FBB01437B7340015D001 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5573FBB11437B7340015D001 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5573FBB21437B7340015D001 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5573FBB31437B7340015D001 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5573FBB71437B77B0015D001 /* UVCharFullTextSearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharFullTextSearchService.h; sourceTree = "<group>"; };
+		5573FBB81437B77B0015D001 /* UVCharFullTextSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharFullTextSearchService.m; sourceTree = "<group>"; };
+		5573FBBE1437BAD00015D001 /* RRFTS3ExtensionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFTS3ExtensionLoader.h; sourceTree = "<group>"; };
 		559F3E0913D0C83100874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		559F3E0B13D0C85900874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		55BF532E13D1EDAF000F4852 /* UVBlockRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlockRepository.h; sourceTree = "<group>"; };
@@ -153,6 +184,8 @@
 				1B1A96D113C08F5D001E2AD5 /* Foundation.framework in Frameworks */,
 				1B1A96D313C08F5D001E2AD5 /* CoreGraphics.framework in Frameworks */,
 				559F3E0A13D0C83100874BE4 /* CoreData.framework in Frameworks */,
+				5573FB9D1437B69D0015D001 /* libsqlite3.dylib in Frameworks */,
+				5573FB7F1437B5530015D001 /* libsqlite-3.6.23.1-fts3-ext.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +216,8 @@
 				1B04ADCA13D94FC200ACE7D9 /* UVCharRepository.m */,
 				1B06236813D9CBC40013C59D /* UVCoreDataHelp.h */,
 				1B06236913D9CBC40013C59D /* UVCoreDataHelp.m */,
+				5573FBB71437B77B0015D001 /* UVCharFullTextSearchService.h */,
+				5573FBB81437B77B0015D001 /* UVCharFullTextSearchService.m */,
 			);
 			name = Dataaccess;
 			sourceTree = "<group>";
@@ -216,10 +251,12 @@
 		1B1A96BF13C08F5C001E2AD5 = {
 			isa = PBXGroup;
 			children = (
+				5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */,
 				1B1A96D413C08F5D001E2AD5 /* UnicodeViewer */,
 				1B1A96FA13C08F5D001E2AD5 /* UnicodeViewerTests */,
 				1B1A96CD13C08F5D001E2AD5 /* Frameworks */,
 				1B1A96CB13C08F5D001E2AD5 /* Products */,
+				5573FB9C1437B69D0015D001 /* libsqlite3.dylib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -328,10 +365,33 @@
 		5563972513CC99B000348B25 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				5573FBBE1437BAD00015D001 /* RRFTS3ExtensionLoader.h */,
+				5573FBAD1437B71F0015D001 /* fmdb */,
 				1B9E7DCA13C0D44000ABD69D /* CopyLabel.h */,
 				1B9E7DCB13C0D44000ABD69D /* CopyLabel.m */,
 			);
 			name = 3rdparty;
+			sourceTree = "<group>";
+		};
+		5573FB751437B53D0015D001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5573FB7C1437B53D0015D001 /* libsqlite-3.6.23.1-fts3-ext.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5573FBAD1437B71F0015D001 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				5573FBAE1437B7340015D001 /* FMDatabase.h */,
+				5573FBAF1437B7340015D001 /* FMDatabase.m */,
+				5573FBB01437B7340015D001 /* FMDatabaseAdditions.h */,
+				5573FBB11437B7340015D001 /* FMDatabaseAdditions.m */,
+				5573FBB21437B7340015D001 /* FMResultSet.h */,
+				5573FBB31437B7340015D001 /* FMResultSet.m */,
+			);
+			name = fmdb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +408,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5573FB7E1437B54D0015D001 /* PBXTargetDependency */,
 			);
 			name = UnicodeViewer;
 			productName = UnicodeViewer;
@@ -388,6 +449,12 @@
 			mainGroup = 1B1A96BF13C08F5C001E2AD5;
 			productRefGroup = 1B1A96CB13C08F5D001E2AD5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5573FB751437B53D0015D001 /* Products */;
+					ProjectRef = 5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1B1A96C913C08F5C001E2AD5 /* UnicodeViewer */,
@@ -395,6 +462,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5573FB7C1437B53D0015D001 /* libsqlite-3.6.23.1-fts3-ext.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsqlite-3.6.23.1-fts3-ext.a";
+			remoteRef = 5573FB7B1437B53D0015D001 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1B1A96C813C08F5C001E2AD5 /* Resources */ = {
@@ -477,6 +554,10 @@
 				556A157413EDAC9A00264E95 /* UVFavoriteListViewController.m in Sources */,
 				1BF3E4F313F40F62009F401E /* UVCharListTableViewCell.m in Sources */,
 				551A13CF14116261000053DC /* UVSearchViewController.m in Sources */,
+				5573FBB41437B7340015D001 /* FMDatabase.m in Sources */,
+				5573FBB51437B7340015D001 /* FMDatabaseAdditions.m in Sources */,
+				5573FBB61437B7340015D001 /* FMResultSet.m in Sources */,
+				5573FBB91437B77B0015D001 /* UVCharFullTextSearchService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +576,11 @@
 			isa = PBXTargetDependency;
 			target = 1B1A96C913C08F5C001E2AD5 /* UnicodeViewer */;
 			targetProxy = 1B1A96F813C08F5D001E2AD5 /* PBXContainerItemProxy */;
+		};
+		5573FB7E1437B54D0015D001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "sqlite-3.6.23.1-fts3-ext";
+			targetProxy = 5573FB7D1437B54D0015D001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

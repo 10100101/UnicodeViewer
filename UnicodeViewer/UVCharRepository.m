@@ -78,6 +78,31 @@
 }
 
 
+- (NSArray*) findCharsWithNumbers:(NSArray*) numbers {
+    NSManagedObjectContext *moc = self.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"UVChar" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"value IN %@", numbers];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"Error fetching chars: %@", error);
+        return nil;
+    }
+    if ([array count] > 0) {
+        return array;
+    } else {
+        return nil;
+    }
+}
+
+
 - (NSArray*) findFavorites {
     NSManagedObjectContext *moc = self.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription
