@@ -42,7 +42,6 @@
     charInfo.value = number;
     charInfo.valueHex = [NSString stringWithFormat:@"%06C"];
     charInfo.name = name;
-    charInfo.isFavorit = NO;
     
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -159,7 +158,8 @@
     if (!charInfo) {
         charInfo = [self insertCharWithNumber:number name:nil];
     }
-    [charInfo setIsFavorit:[NSNumber numberWithBool:![charInfo.isFavorit boolValue]]];
+    //TODO add new implementation
+    //[charInfo setIsFavorit:[NSNumber numberWithBool:![charInfo.isFavorit boolValue]]];
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error saving managed object: %@", error);

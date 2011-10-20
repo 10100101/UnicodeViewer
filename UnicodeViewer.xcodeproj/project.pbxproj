@@ -67,6 +67,7 @@
 		55BF533013D1EDAF000F4852 /* UVBlockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */; };
 		55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D51438F4D50081B790 /* ios-fabric.png */; };
 		55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D61438F4D50081B790 /* ios-fabric@2x.png */; };
+		55CFF790144F605300E65DE8 /* UVFavoritChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CFF78F144F605300E65DE8 /* UVFavoritChar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,8 @@
 		55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlockRepository.m; sourceTree = "<group>"; };
 		55CD98D51438F4D50081B790 /* ios-fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric.png"; sourceTree = "<group>"; };
 		55CD98D61438F4D50081B790 /* ios-fabric@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric@2x.png"; sourceTree = "<group>"; };
+		55CFF78E144F605300E65DE8 /* UVFavoritChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoritChar.h; sourceTree = "<group>"; };
+		55CFF78F144F605300E65DE8 /* UVFavoritChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritChar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */,
+				55CFF78E144F605300E65DE8 /* UVFavoritChar.h */,
+				55CFF78F144F605300E65DE8 /* UVFavoritChar.m */,
 				1BAB62AF13CF3FB100EC0827 /* UVChar.h */,
 				1BAB62B013CF3FB100EC0827 /* UVChar.m */,
 				1B3F648313CEC6190065917A /* UVBlock.h */,
@@ -566,6 +571,7 @@
 				5573FBB51437B7340015D001 /* FMDatabaseAdditions.m in Sources */,
 				5573FBB61437B7340015D001 /* FMResultSet.m in Sources */,
 				5573FBB91437B77B0015D001 /* UVCharFullTextSearchService.m in Sources */,
+				55CFF790144F605300E65DE8 /* UVFavoritChar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

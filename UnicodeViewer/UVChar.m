@@ -23,12 +23,13 @@
 //
 
 #import "UVChar.h"
+#import "UVBlock.h"
 
 
 @implementation UVChar
 @dynamic name;
 @dynamic value;
 @dynamic valueHex;
-@dynamic isFavorit;
+@dynamic block;
 
 @end

@@ -62,9 +62,10 @@
 - (IBAction) addToFavorites:(id) sender {
     NSString *imageName = @"heart-d";
     if (charInfo) {
-        if ([charInfo.isFavorit boolValue]) {
-            imageName = @"heart-l";
-        }
+        //TODO new implementation
+        //if ([charInfo.isFavorit boolValue]) {
+        //    imageName = @"heart-l";
+        //}
     }    
     self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:imageName];
     
@@ -92,9 +93,10 @@
 
     NSString *imageName = @"heart-l";
     if (charInfo) {
-        if ([charInfo.isFavorit boolValue]) {
-            imageName = @"heart-d";
-        }
+        //TODO new implementation
+        //if ([charInfo.isFavorit boolValue]) {
+        //    imageName = @"heart-d";
+        //}
     }
     
     UIBarButtonItem *addToFavs = 

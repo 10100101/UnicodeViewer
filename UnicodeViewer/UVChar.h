@@ -25,6 +25,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class UVBlock;
 
 @interface UVChar : NSManagedObject {
 @private
@@ -32,6 +33,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * value;
 @property (nonatomic, retain) NSString * valueHex;
-@property (nonatomic, retain) NSNumber * isFavorit;
+@property (nonatomic, retain) NSString * block;
 
 @end
