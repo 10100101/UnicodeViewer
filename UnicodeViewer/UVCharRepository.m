@@ -134,8 +134,8 @@
         charInfo = [self insertCharWithNumber:number name:nil];
     }
     if (charInfo.favorit) {
-        charInfo.favorit = nil;
         [self.managedObjectContext deleteObject:(NSManagedObject *)charInfo.favorit];
+        charInfo.favorit = nil;
     } else {
         UVFavoritCharRepository *favoritCharRepository = [[UVFavoritCharRepository alloc] initWithManagedObjectContext:self.managedObjectContext];
         [favoritCharRepository insertFavoritForChar:charInfo];
