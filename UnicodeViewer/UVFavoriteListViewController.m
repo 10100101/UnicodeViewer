@@ -8,8 +8,10 @@
 
 #import "UVFavoriteListViewController.h"
 #import "UnicodeDetailViewController.h"
+#import "UVFavoritCharRepository.h"
 #import "UVCharRepository.h"
 #import "UVChar.h"
+#import "UVFavoritChar.h"
 #import "UVCoreDataHelp.h"
 
 @interface UVFavoriteListViewController(Private) 
@@ -43,7 +45,7 @@
 
 -(void) loadData {
     // Init char infos
-    UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    UVFavoritCharRepository *repository = [[UVFavoritCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     NSArray *staticCharInfos = [repository findFavorites];
     charInfos = [[NSMutableArray alloc] initWithCapacity:[staticCharInfos count]];
     [charInfos addObjectsFromArray:staticCharInfos];
@@ -122,8 +124,10 @@
         [[NSBundle mainBundle] loadNibNamed:@"UVCharListTableViewCell" owner:self options:nil];
         cell = charListCell;
     }
-    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
+    UVFavoritChar *favorit = (UVFavoritChar *)[charInfos objectAtIndex:indexPath.row];
+    UVChar *charInfo = favorit.charInfo;
     int c = [charInfo.value intValue];
+    
     cell.charLabel.text = [NSString stringWithFormat:@"%C", c];     
     if (charInfo) {
         NSString *name = charInfo.name == nil ? @"": charInfo.name;
@@ -189,7 +193,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
-    UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
+    
+    UVFavoritChar *favorit = (UVFavoritChar *)[charInfos objectAtIndex:indexPath.row];
+    UVChar *charInfo = favorit.charInfo;
     detailViewController.unicode  = [charInfo.value intValue];
     detailViewController.charInfo = charInfo;
     detailViewController.delegate = self;

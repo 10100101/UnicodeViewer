@@ -37,8 +37,6 @@
 
 - (NSArray*) listCharsFrom:(NSNumber*) from to:(NSNumber*) to;
 
-- (NSArray*) findFavorites;
-
 - (UVChar*) toggleFavForCharWithNumer:(NSNumber*) number;
 
 - (UVChar*) findCharWithNumber:(NSNumber*) number;

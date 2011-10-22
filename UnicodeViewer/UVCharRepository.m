@@ -23,6 +23,7 @@
 //
 
 #import "UVCharRepository.h"
+#import "UVFavoritCharRepository.h"
 
 @implementation UVCharRepository
 
@@ -49,7 +50,6 @@
         return nil;
     }
     return charInfo;
-    return nil;
 }
 
 - (UVChar *) findCharWithNumber:(NSNumber *) number {
@@ -102,31 +102,6 @@
 }
 
 
-- (NSArray*) findFavorites {
-    NSManagedObjectContext *moc = self.managedObjectContext;
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:@"UVChar" inManagedObjectContext:moc];
-    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
-    [request setEntity:entityDescription];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isFavorit == YES"];
-    [request setPredicate:predicate];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"value" ascending:YES];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    [sortDescriptor release];
-    
-    NSError *error = nil;
-    NSArray *array = [moc executeFetchRequest:request error:&error];
-    if (array == nil)
-    {
-        NSLog(@"Error fetching chars: %@", error);
-        return nil;
-    }
-    return array;
-}
-
-
 - (NSArray *) listCharsFrom:(NSNumber *) from to:(NSNumber *) to {
     NSManagedObjectContext *moc = self.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription
@@ -158,8 +133,14 @@
     if (!charInfo) {
         charInfo = [self insertCharWithNumber:number name:nil];
     }
-    //TODO add new implementation
-    //[charInfo setIsFavorit:[NSNumber numberWithBool:![charInfo.isFavorit boolValue]]];
+    if (charInfo.favorit) {
+        charInfo.favorit = nil;
+        [self.managedObjectContext deleteObject:(NSManagedObject *)charInfo.favorit];
+    } else {
+        UVFavoritCharRepository *favoritCharRepository = [[UVFavoritCharRepository alloc] initWithManagedObjectContext:self.managedObjectContext];
+        [favoritCharRepository insertFavoritForChar:charInfo];
+        [favoritCharRepository release];
+    }
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error saving managed object: %@", error);
@@ -196,6 +177,11 @@
         return nil;
     }
     return array;
+}
+
+- (void) dealloc {
+    [__managedObjectContext release];
+    [super dealloc];
 }
 
 
