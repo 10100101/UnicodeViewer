@@ -69,13 +69,14 @@
     self.tableView.rowHeight = 50;
     
     // Init char infos
-    UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
-    NSArray *chars = [repository listCharsFrom:block.rangeLower to:block.rangeUpper];    
+    //UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
+    //NSArray *chars = [repository listCharsFrom:block.rangeLower to:block.rangeUpper];    
+    NSArray *chars = [[block chars] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"value" ascending:YES]]];
     charInfos = [[NSMutableDictionary alloc] initWithCapacity:[chars count]];
     for (int i = 0; i < [chars count]; i++) {
         [charInfos setObject:[chars objectAtIndex:i] forKey:[(UVChar*)[chars objectAtIndex:i] value]];
     }
-    [repository release];
+    //[repository release];
     //[chars release];
     
     // Uncomment the following line to preserve selection between presentations.
