@@ -28,10 +28,14 @@
 #import "UVCoreDataHelp.h"
 #import "UVChar.h"
 
+double const SEARCH_DELAY = 1.0;
+
 @interface UVSearchViewController(Private)
 
 - (void) searchFor:(NSString *) searchText;
 - (void) updateData:(NSMutableArray *) data;
+- (void) updateSearchTrigger:(NSString *) searchText;
+- (void) performSearchInBackground:(NSTimer *) timer;
     
 @end
 
@@ -224,6 +228,25 @@
 }
 */
 
+- (void) updateSearchTrigger:(NSString *) searchText {
+    [_searchTriger invalidate];
+    [_searchTriger release];
+    _searchTriger = [NSTimer scheduledTimerWithTimeInterval:SEARCH_DELAY target:self selector:@selector(performSearchInBackground:) userInfo:searchText repeats:NO];
+    [_searchTriger retain];
+}
+
+- (void) performSearchInBackground:(NSTimer *) timer {
+    NSLog(@"performSearchInBackground");
+    if (!self.operationQueue) {
+        self.operationQueue = [[NSOperationQueue alloc] init];
+        [self.operationQueue setMaxConcurrentOperationCount:1];
+    }
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(searchFor:) object:timer.userInfo];
+    [self.operationQueue cancelAllOperations];
+    [self.operationQueue addOperation:operation];
+    [operation release];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -241,14 +264,7 @@
 #pragma mark - UiSearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (!self.operationQueue) {
-        self.operationQueue = [[NSOperationQueue alloc] init];
-        [self.operationQueue setMaxConcurrentOperationCount:1];
-    }
-    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(searchFor:) object:searchText];
-    [self.operationQueue cancelAllOperations];
-    [self.operationQueue addOperation:operation];
-    [operation release];
+    [self updateSearchTrigger:searchText];
 }
 
 #pragma mark - Favorite state delegate
@@ -263,6 +279,7 @@
 - (void) dealloc {
     [charInfos release];
     [operationQueue release];
+    [_searchTriger release];
 
     [super dealloc];
 }
