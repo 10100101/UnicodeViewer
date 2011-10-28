@@ -69,6 +69,7 @@
 		55BF533013D1EDAF000F4852 /* UVBlockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */; };
 		55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D51438F4D50081B790 /* ios-fabric.png */; };
 		55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D61438F4D50081B790 /* ios-fabric@2x.png */; };
+		55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD98D81438F4D50081B791 /* UVChar+Favorits.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlockRepository.m; sourceTree = "<group>"; };
 		55CD98D51438F4D50081B790 /* ios-fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric.png"; sourceTree = "<group>"; };
 		55CD98D61438F4D50081B790 /* ios-fabric@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric@2x.png"; sourceTree = "<group>"; };
+		55CD98D81438F4D50081B791 /* UVChar+Favorits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UVChar+Favorits.m"; sourceTree = "<group>"; };
+		55CD98D81438F4D50081B793 /* UVChar+Favorits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UVChar+Favorits.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +350,8 @@
 				553D3E7C1451F112006C305F /* UVBlock.m */,
 				553D3E781451F0F1006C305F /* UVChar.h */,
 				553D3E791451F0F1006C305F /* UVChar.m */,
+				55CD98D81438F4D50081B793 /* UVChar+Favorits.h */,
+				55CD98D81438F4D50081B791 /* UVChar+Favorits.m */,
 				553D3E751451F0D1006C305F /* UVFavoritChar.h */,
 				553D3E761451F0D1006C305F /* UVFavoritChar.m */,
 			);
@@ -578,6 +583,7 @@
 				553D3E7A1451F0F1006C305F /* UVChar.m in Sources */,
 				553D3E7D1451F112006C305F /* UVBlock.m in Sources */,
 				552BCF32145308C400DCF4C7 /* UVFavoritCharRepository.m in Sources */,
+				55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

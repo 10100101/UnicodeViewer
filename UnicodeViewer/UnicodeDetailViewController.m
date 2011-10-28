@@ -23,6 +23,7 @@
 //
 
 #import "UnicodeDetailViewController.h"
+#import "UVChar+Favorits.h"
 
 
 @implementation UnicodeDetailViewController
@@ -62,10 +63,9 @@
 - (IBAction) addToFavorites:(id) sender {
     NSString *imageName = @"heart-d";
     if (charInfo) {
-        //TODO new implementation
-        //if ([charInfo.isFavorit boolValue]) {
-        //    imageName = @"heart-l";
-        //}
+        if ([charInfo hasFavorit]) {
+            imageName = @"heart-l";
+        }
     }    
     self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:imageName];
     
@@ -93,10 +93,9 @@
 
     NSString *imageName = @"heart-l";
     if (charInfo) {
-        //TODO new implementation
-        //if ([charInfo.isFavorit boolValue]) {
-        //    imageName = @"heart-d";
-        //}
+        if ([charInfo hasFavorit]) {
+            imageName = @"heart-d";
+        }
     }
     
     UIBarButtonItem *addToFavs = 
