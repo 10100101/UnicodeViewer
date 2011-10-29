@@ -28,7 +28,7 @@
 		1B1A971113C09706001E2AD5 /* UnicodeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A970F13C09706001E2AD5 /* UnicodeListViewController.xib */; };
 		1B3F648213CEC5C80065917A /* UVModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */; };
 		1B9E7DC713C0C62300ABD69D /* UnicodeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */; };
-		1B9E7DC813C0C62300ABD69D /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B9E7DC613C0C62300ABD69D /* UnicodeDetailViewController.xib */; };
+		1B9E7DC813C0C62300ABD69D /* UVDetailTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B9E7DC613C0C62300ABD69D /* UVDetailTableViewHeader.xib */; };
 		1B9E7DCC13C0D44000ABD69D /* CopyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9E7DCB13C0D44000ABD69D /* CopyLabel.m */; };
 		1BAB62B313CF3FDA00EC0827 /* uni-blocks-6.0.0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BAB62B213CF3FDA00EC0827 /* uni-blocks-6.0.0.txt */; };
 		1BAB62B513CF400A00EC0827 /* uni-grouped-6.0.0.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1BAB62B413CF400A00EC0827 /* uni-grouped-6.0.0.xml */; };
@@ -49,6 +49,9 @@
 		553D3E771451F0D1006C305F /* UVFavoritChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E761451F0D1006C305F /* UVFavoritChar.m */; };
 		553D3E7A1451F0F1006C305F /* UVChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E791451F0F1006C305F /* UVChar.m */; };
 		553D3E7D1451F112006C305F /* UVBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E7C1451F112006C305F /* UVBlock.m */; };
+		555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */; };
+		555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */; };
+		555C84FF145C8935006191B0 /* UVCharEncodingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84FE145C8935006191B0 /* UVCharEncodingTableViewCell.xib */; };
 		5563972813CC99CB00348B25 /* index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972713CC99CB00348B25 /* index-cards.png */; };
 		5563972A13CC99E000348B25 /* cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972913CC99E000348B25 /* cabinet.png */; };
 		5563972C13CC99F400348B25 /* shoebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563972B13CC99F400348B25 /* shoebox.png */; };
@@ -127,7 +130,7 @@
 		1B3F648113CEC5C80065917A /* UVModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UVModel.xcdatamodel; sourceTree = "<group>"; };
 		1B9E7DC413C0C62300ABD69D /* UnicodeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeDetailViewController.h; sourceTree = "<group>"; };
 		1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeDetailViewController.m; sourceTree = "<group>"; };
-		1B9E7DC613C0C62300ABD69D /* UnicodeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeDetailViewController.xib; sourceTree = "<group>"; };
+		1B9E7DC613C0C62300ABD69D /* UVDetailTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVDetailTableViewHeader.xib; sourceTree = "<group>"; };
 		1B9E7DCA13C0D44000ABD69D /* CopyLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyLabel.h; sourceTree = "<group>"; };
 		1B9E7DCB13C0D44000ABD69D /* CopyLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyLabel.m; sourceTree = "<group>"; };
 		1BAB62B213CF3FDA00EC0827 /* uni-blocks-6.0.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "uni-blocks-6.0.0.txt"; sourceTree = "<group>"; };
@@ -157,6 +160,10 @@
 		553D3E791451F0F1006C305F /* UVChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVChar.m; sourceTree = "<group>"; };
 		553D3E7B1451F112006C305F /* UVBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlock.h; sourceTree = "<group>"; };
 		553D3E7C1451F112006C305F /* UVBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlock.m; sourceTree = "<group>"; };
+		555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeDetailViewController.xib; sourceTree = "<group>"; };
+		555C84FB145C8906006191B0 /* UVCharEncodingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharEncodingTableViewCell.h; sourceTree = "<group>"; };
+		555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharEncodingTableViewCell.m; sourceTree = "<group>"; };
+		555C84FE145C8935006191B0 /* UVCharEncodingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVCharEncodingTableViewCell.xib; sourceTree = "<group>"; };
 		5563972713CC99CB00348B25 /* index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index-cards.png"; sourceTree = "<group>"; };
 		5563972913CC99E000348B25 /* cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cabinet.png; sourceTree = "<group>"; };
 		5563972B13CC99F400348B25 /* shoebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoebox.png; sourceTree = "<group>"; };
@@ -245,20 +252,24 @@
 				1B1A970F13C09706001E2AD5 /* UnicodeListViewController.xib */,
 				1B9E7DC413C0C62300ABD69D /* UnicodeDetailViewController.h */,
 				1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */,
-				1B9E7DC613C0C62300ABD69D /* UnicodeDetailViewController.xib */,
+				555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */,
+				1B9E7DC613C0C62300ABD69D /* UVDetailTableViewHeader.xib */,
+				555C84FB145C8906006191B0 /* UVCharEncodingTableViewCell.h */,
+				555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */,
+				555C84FE145C8935006191B0 /* UVCharEncodingTableViewCell.xib */,
 				1BAB62B913CF429C00EC0827 /* UVBlockListViewController.h */,
 				1BAB62BA13CF429D00EC0827 /* UVBlockListViewController.m */,
 				1BAB62BB13CF429D00EC0827 /* UVBlockListViewController.xib */,
-				1B1A96E013C08F5D001E2AD5 /* MainWindow.xib */,
 				556A157113EDAC9A00264E95 /* UVFavoriteListViewController.h */,
 				556A157213EDAC9A00264E95 /* UVFavoriteListViewController.m */,
 				556A157313EDAC9A00264E95 /* UVFavoriteListViewController.xib */,
-				1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */,
 				1BF3E4F113F40F61009F401E /* UVCharListTableViewCell.h */,
 				1BF3E4F213F40F62009F401E /* UVCharListTableViewCell.m */,
+				1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */,
 				551A13CC14116261000053DC /* UVSearchViewController.h */,
 				551A13CD14116261000053DC /* UVSearchViewController.m */,
 				551A13CE14116261000053DC /* UVSearchViewController.xib */,
+				1B1A96E013C08F5D001E2AD5 /* MainWindow.xib */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -502,7 +513,7 @@
 				1B1A96D913C08F5D001E2AD5 /* InfoPlist.strings in Resources */,
 				1B1A96E213C08F5D001E2AD5 /* MainWindow.xib in Resources */,
 				1B1A971113C09706001E2AD5 /* UnicodeListViewController.xib in Resources */,
-				1B9E7DC813C0C62300ABD69D /* UnicodeDetailViewController.xib in Resources */,
+				1B9E7DC813C0C62300ABD69D /* UVDetailTableViewHeader.xib in Resources */,
 				1BD38F2913CA414B0017FC59 /* tag-l.png in Resources */,
 				1BCCF22113CC34D5002582FB /* star-d.png in Resources */,
 				1BCCF22213CC34D5002582FB /* heart-d.png in Resources */,
@@ -525,6 +536,8 @@
 				551A13D014116261000053DC /* UVSearchViewController.xib in Resources */,
 				55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */,
 				55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */,
+				555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */,
+				555C84FF145C8935006191B0 /* UVCharEncodingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +597,7 @@
 				553D3E7D1451F112006C305F /* UVBlock.m in Sources */,
 				552BCF32145308C400DCF4C7 /* UVFavoritCharRepository.m in Sources */,
 				55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */,
+				555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

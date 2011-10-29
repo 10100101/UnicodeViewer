@@ -24,6 +24,7 @@
 
 #import "UnicodeDetailViewController.h"
 #import "UVChar+Favorits.h"
+#import "UVCharEncodingTableViewCell.h"
 
 
 @implementation UnicodeDetailViewController
@@ -32,9 +33,9 @@
 @synthesize charInfo;
 @synthesize charLabel; 
 @synthesize charNameLabel; 
-@synthesize hexLabel; 
-@synthesize htmlEntityLabe;
 @synthesize delegate;
+@synthesize tableHeaderView;
+@synthesize charEncodingCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -79,8 +80,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSBundle mainBundle] loadNibNamed:@"UVDetailTableViewHeader" owner:self options:nil];
+
+    self.tableHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric.png"]];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 267)];
+    [bgView addSubview:self.tableHeaderView];
+    self.tableView.tableHeaderView = bgView;
+    [bgView release];
+                      
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric.png"]];
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
     if (charInfo) {
@@ -88,8 +96,6 @@
     } else {
         charNameLabel.text = @"";
     }
-    hexLabel.text       = [NSString stringWithFormat:@"U+%06X", unicode];
-    htmlEntityLabe.text = [NSString stringWithFormat:@"&#x%X;", unicode];    
 
     NSString *imageName = @"heart-l";
     if (charInfo) {
@@ -108,6 +114,49 @@
     self.navigationItem.rightBarButtonItem = addToFavs;
     [addToFavs release];
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UVCharEncodingTableViewCell *cell = (UVCharEncodingTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellEncoding"];
+    if (cell == nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"UVCharEncodingTableViewCell" owner:self options:nil];
+        cell = charEncodingCell;
+    }
+    if (indexPath.row == 0) {
+        cell.encodingLable.text = @"Unicode: ";
+        cell.valueLable.text    = [NSString stringWithFormat:@"U+%06X", unicode];
+    } else {
+        cell.encodingLable.text = @"Html: ";
+        cell.valueLable.text    = [NSString stringWithFormat:@"&#x%X;", unicode];    
+    }
+    cell.backgroundColor = [UIColor whiteColor];
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
+*/
+
 
 - (void)viewDidUnload
 {

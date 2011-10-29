@@ -26,17 +26,16 @@
 #import "UVChar.h"
 
 @protocol UVFavoriteStateChangedDelegate;
+@class UVCharEncodingTableViewCell;
 
-
-
-@interface UnicodeDetailViewController : UIViewController {
+@interface UnicodeDetailViewController : UITableViewController {
 
 }
 
 @property(nonatomic, assign) IBOutlet UILabel *charLabel; 
 @property(nonatomic, assign) IBOutlet UILabel *charNameLabel; 
-@property(nonatomic, assign) IBOutlet UILabel *hexLabel; 
-@property(nonatomic, assign) IBOutlet UILabel *htmlEntityLabe; 
+@property(nonatomic, assign) IBOutlet UIView  *tableHeaderView;
+@property(nonatomic, assign) IBOutlet UVCharEncodingTableViewCell *charEncodingCell;
 
 @property(nonatomic, assign) int unicode;
 @property(nonatomic, assign) UVChar *charInfo;
