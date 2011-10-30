@@ -135,7 +135,7 @@
     } else {
         cell.unicodeNameLabel.text = @""; 
     }
-    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%06X", c]; 
+    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", c]; 
     
     return cell;
 }

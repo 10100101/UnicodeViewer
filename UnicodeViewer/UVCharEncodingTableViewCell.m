@@ -26,7 +26,36 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    if (selected) {
+        [self becomeFirstResponder];
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setTargetRect:self.frame inView:self.superview];
+        [menu setMenuVisible:YES animated:YES];
+        [self setSelected:NO animated:YES];
+    }
+}
+
+//needed for the menu
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)resignFirstResponder {
+    if (self.selected) {
+        [self setSelected:NO animated:YES];
+    }
+    return YES;
+}
+
+//what to copy
+- (void)copy:(id)sender {
+	UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+    [gpBoard setString:self.valueLable.text];    
+}
+
+//what this cell can do: only copy
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return  (action == @selector(copy:));
 }
 
 @end

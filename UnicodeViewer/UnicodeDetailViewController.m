@@ -26,6 +26,20 @@
 #import "UVChar+Favorits.h"
 #import "UVCharEncodingTableViewCell.h"
 
+enum UVDetailViewEncodingPosition {
+    UVDetailViewEncodingPositionUnicode = 0,
+    UVDetailViewEncodingPositionHtmlHex = 1,
+    UVDetailViewEncodingPositionHtmlDec = 2,
+    UVDetailViewEncodingPositionUtf8    = 3,
+    UVDetailViewEncodingPositionUtf16   = 4
+};
+
+@interface UnicodeDetailViewController(Private)
+
+- (void) updateCharNameLabel:(NSString *) name;
+        
+@end
+
 
 @implementation UnicodeDetailViewController
 
@@ -91,11 +105,7 @@
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
-    if (charInfo) {
-        charNameLabel.text = charInfo.name;
-    } else {
-        charNameLabel.text = @"";
-    }
+    [self updateCharNameLabel:charInfo.name];
 
     NSString *imageName = @"heart-l";
     if (charInfo) {
@@ -115,6 +125,21 @@
     [addToFavs release];
 }
 
+- (void) updateCharNameLabel:(NSString *) name {
+    if (name) {
+        charNameLabel.text = name;
+        CGRect nameLableFrame = self.charNameLabel.frame;
+        CGSize maximumSize = CGSizeMake(nameLableFrame.size.width, nameLableFrame.size.height);
+        CGSize nameStringSize = [name sizeWithFont:self.charNameLabel.font 
+                                 constrainedToSize:maximumSize 
+                                     lineBreakMode:self.charNameLabel.lineBreakMode];
+        CGRect nameFrame = CGRectMake(nameLableFrame.origin.x, nameLableFrame.origin.y, nameLableFrame.size.width, nameStringSize.height);
+        self.charNameLabel.frame = nameFrame;
+    } else {
+        charNameLabel.text = @"";
+    }    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -126,7 +151,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,12 +161,15 @@
         [[NSBundle mainBundle] loadNibNamed:@"UVCharEncodingTableViewCell" owner:self options:nil];
         cell = charEncodingCell;
     }
-    if (indexPath.row == 0) {
+    if (indexPath.row == UVDetailViewEncodingPositionUnicode) {
         cell.encodingLable.text = @"Unicode: ";
-        cell.valueLable.text    = [NSString stringWithFormat:@"U+%06X", unicode];
-    } else {
-        cell.encodingLable.text = @"Html: ";
+        cell.valueLable.text    = [NSString stringWithFormat:@"U+%04X", unicode];
+    } else if (indexPath.row == UVDetailViewEncodingPositionHtmlHex) {
+        cell.encodingLable.text = @"HTML (hex): ";
         cell.valueLable.text    = [NSString stringWithFormat:@"&#x%X;", unicode];    
+    } else if (indexPath.row == UVDetailViewEncodingPositionHtmlDec) {
+        cell.encodingLable.text = @"HTML (dec): ";
+        cell.valueLable.text    = [NSString stringWithFormat:@"&#%i;", unicode];    
     }
     cell.backgroundColor = [UIColor whiteColor];
     
@@ -157,6 +185,8 @@
 }
 */
 
+
+#pragma mark - The rest
 
 - (void)viewDidUnload
 {
