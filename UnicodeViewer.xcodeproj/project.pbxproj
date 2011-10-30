@@ -73,6 +73,8 @@
 		55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D51438F4D50081B790 /* ios-fabric.png */; };
 		55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D61438F4D50081B790 /* ios-fabric@2x.png */; };
 		55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CD98D81438F4D50081B791 /* UVChar+Favorits.m */; };
+		55D40AFA145DDF0E00DF3043 /* start-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 55D40AF8145DDF0E00DF3043 /* start-image.png */; };
+		55D40AFB145DDF0E00DF3043 /* start-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55D40AF9145DDF0E00DF3043 /* start-image@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +195,8 @@
 		55CD98D61438F4D50081B790 /* ios-fabric@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric@2x.png"; sourceTree = "<group>"; };
 		55CD98D81438F4D50081B791 /* UVChar+Favorits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UVChar+Favorits.m"; sourceTree = "<group>"; };
 		55CD98D81438F4D50081B793 /* UVChar+Favorits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UVChar+Favorits.h"; sourceTree = "<group>"; };
+		55D40AF8145DDF0E00DF3043 /* start-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-image.png"; sourceTree = "<group>"; };
+		55D40AF9145DDF0E00DF3043 /* start-image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-image@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +376,8 @@
 		1BD38F2413CA3ED00017FC59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55D40AF8145DDF0E00DF3043 /* start-image.png */,
+				55D40AF9145DDF0E00DF3043 /* start-image@2x.png */,
 				55CD98D51438F4D50081B790 /* ios-fabric.png */,
 				55CD98D61438F4D50081B790 /* ios-fabric@2x.png */,
 				1B06236B13D9D9E70013C59D /* UVDB.sqlite */,
@@ -538,6 +544,8 @@
 				55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */,
 				555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */,
 				555C84FF145C8935006191B0 /* UVCharEncodingTableViewCell.xib in Resources */,
+				55D40AFA145DDF0E00DF3043 /* start-image.png in Resources */,
+				55D40AFB145DDF0E00DF3043 /* start-image@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
