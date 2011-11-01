@@ -139,9 +139,9 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     UVBlock *currentBlock = (UVBlock *)[blocks objectAtIndex:indexPath.row];
     cell.textLabel.text = currentBlock.name;
-    int rangeLower = [currentBlock.rangeLower intValue];
-    int rangeUpper = [currentBlock.rangeUpper intValue];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%04X ... U+%04X (%i)", rangeLower, rangeUpper, (rangeUpper-rangeLower+1)];
+    int rangeLower = [currentBlock.rangeLower longValue];
+    int rangeUpper = [currentBlock.rangeUpper longValue];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"U+%04X..U+%04X (%i)", rangeLower, rangeUpper, (rangeUpper-rangeLower+1)];
     
     return cell;
 }

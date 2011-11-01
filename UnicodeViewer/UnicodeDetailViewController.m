@@ -25,12 +25,13 @@
 #import "UnicodeDetailViewController.h"
 #import "UVChar+Favorits.h"
 #import "UVCharEncodingTableViewCell.h"
+#import "UVCharEncodingHelper.h"
 
 enum UVDetailViewEncodingPosition {
     UVDetailViewEncodingPositionUnicode = 0,
-    UVDetailViewEncodingPositionHtmlHex = 1,
-    UVDetailViewEncodingPositionHtmlDec = 2,
-    UVDetailViewEncodingPositionUtf8    = 3,
+    UVDetailViewEncodingPositionUtf8    = 1,
+    UVDetailViewEncodingPositionHtmlHex = 2,
+    UVDetailViewEncodingPositionHtmlDec = 3,
     UVDetailViewEncodingPositionUtf16   = 4
 };
 
@@ -96,7 +97,7 @@ enum UVDetailViewEncodingPosition {
     [super viewDidLoad];
     [[NSBundle mainBundle] loadNibNamed:@"UVDetailTableViewHeader" owner:self options:nil];
 
-    self.tableHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric.png"]];
+    self.tableHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric@2x.png"]];
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 267)];
     [bgView addSubview:self.tableHeaderView];
     self.tableView.tableHeaderView = bgView;
@@ -133,7 +134,8 @@ enum UVDetailViewEncodingPosition {
         CGSize nameStringSize = [name sizeWithFont:self.charNameLabel.font 
                                  constrainedToSize:maximumSize 
                                      lineBreakMode:self.charNameLabel.lineBreakMode];
-        CGRect nameFrame = CGRectMake(nameLableFrame.origin.x, nameLableFrame.origin.y, nameLableFrame.size.width, nameStringSize.height);
+        int emptyHeight = nameLableFrame.size.height - nameStringSize.height;
+        CGRect nameFrame = CGRectMake(nameLableFrame.origin.x, nameLableFrame.origin.y+emptyHeight/2, nameLableFrame.size.width, nameStringSize.height);
         self.charNameLabel.frame = nameFrame;
     } else {
         charNameLabel.text = @"";
@@ -151,7 +153,7 @@ enum UVDetailViewEncodingPosition {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -163,13 +165,16 @@ enum UVDetailViewEncodingPosition {
     }
     if (indexPath.row == UVDetailViewEncodingPositionUnicode) {
         cell.encodingLable.text = @"Unicode: ";
-        cell.valueLable.text    = [NSString stringWithFormat:@"U+%04X", unicode];
+        cell.valueLable.text    = [UVCharEncodingHelper toUnicodeHex: unicode];
     } else if (indexPath.row == UVDetailViewEncodingPositionHtmlHex) {
         cell.encodingLable.text = @"HTML (hex): ";
-        cell.valueLable.text    = [NSString stringWithFormat:@"&#x%X;", unicode];    
+        cell.valueLable.text    = [UVCharEncodingHelper toHtmlEntityHex: unicode];    
     } else if (indexPath.row == UVDetailViewEncodingPositionHtmlDec) {
         cell.encodingLable.text = @"HTML (dec): ";
-        cell.valueLable.text    = [NSString stringWithFormat:@"&#%i;", unicode];    
+        cell.valueLable.text    = [UVCharEncodingHelper toHtmlEntityDec: unicode];    
+    } else if (indexPath.row == UVDetailViewEncodingPositionUtf8) {
+        cell.encodingLable.text = @"UTF-8: ";
+        cell.valueLable.text    = [UVCharEncodingHelper toUtf8Hex: unicode];    
     }
     cell.backgroundColor = [UIColor whiteColor];
     
