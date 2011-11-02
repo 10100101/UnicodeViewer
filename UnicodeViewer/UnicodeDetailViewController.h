@@ -28,13 +28,14 @@
 @protocol UVFavoriteStateChangedDelegate;
 @class UVCharEncodingTableViewCell;
 
-@interface UnicodeDetailViewController : UITableViewController {
+@interface UnicodeDetailViewController : UIViewController {
 
 }
 
 @property(nonatomic, assign) IBOutlet UILabel *charLabel; 
 @property(nonatomic, assign) IBOutlet UILabel *charNameLabel; 
 @property(nonatomic, assign) IBOutlet UIView  *tableHeaderView;
+@property(nonatomic, assign) IBOutlet UITableView *tableView;
 @property(nonatomic, assign) IBOutlet UVCharEncodingTableViewCell *charEncodingCell;
 
 @property(nonatomic, assign) int unicode;

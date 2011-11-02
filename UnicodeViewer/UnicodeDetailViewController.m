@@ -50,6 +50,7 @@ enum UVDetailViewEncodingPosition {
 @synthesize charNameLabel; 
 @synthesize delegate;
 @synthesize tableHeaderView;
+@synthesize tableView;
 @synthesize charEncodingCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -98,7 +99,7 @@ enum UVDetailViewEncodingPosition {
     [[NSBundle mainBundle] loadNibNamed:@"UVDetailTableViewHeader" owner:self options:nil];
 
     self.tableHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric@2x.png"]];
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 267)];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 310)];
     [bgView addSubview:self.tableHeaderView];
     self.tableView.tableHeaderView = bgView;
     [bgView release];
@@ -158,7 +159,7 @@ enum UVDetailViewEncodingPosition {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UVCharEncodingTableViewCell *cell = (UVCharEncodingTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellEncoding"];
+    UVCharEncodingTableViewCell *cell = (UVCharEncodingTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellEncoding"];
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"UVCharEncodingTableViewCell" owner:self options:nil];
         cell = charEncodingCell;
@@ -179,6 +180,11 @@ enum UVDetailViewEncodingPosition {
     cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Encoding";
 }
 
 #pragma mark - Table view delegate

@@ -94,6 +94,14 @@
 					</object>
 					<int key="connectionID">6</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">tableView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="518592294"/>
+					</object>
+					<int key="connectionID">7</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -154,7 +162,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">6</int>
+			<int key="maxID">7</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -201,7 +209,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UnicodeDetailViewController</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -210,6 +218,7 @@
 							<string>charLabel</string>
 							<string>charNameLabel</string>
 							<string>tableHeaderView</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -217,6 +226,7 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIView</string>
+							<string>UITableView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -227,6 +237,7 @@
 							<string>charLabel</string>
 							<string>charNameLabel</string>
 							<string>tableHeaderView</string>
+							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -245,6 +256,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">tableHeaderView</string>
 								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableView</string>
+								<string key="candidateClassName">UITableView</string>
 							</object>
 						</object>
 					</object>
