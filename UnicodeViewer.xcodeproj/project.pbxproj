@@ -62,6 +62,8 @@
 		5563973313CCA0F300348B25 /* logo-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5563973013CCA0F300348B25 /* logo-72x72.png */; };
 		556A157413EDAC9A00264E95 /* UVFavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556A157213EDAC9A00264E95 /* UVFavoriteListViewController.m */; };
 		556A157513EDAC9A00264E95 /* UVFavoriteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556A157313EDAC9A00264E95 /* UVFavoriteListViewController.xib */; };
+		556E8B7D1464835700E53291 /* UVCharBlockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E8B7C1464835700E53291 /* UVCharBlockTableViewCell.m */; };
+		556E8B7F1464851700E53291 /* UVCharBlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556E8B7E1464851700E53291 /* UVCharBlockTableViewCell.xib */; };
 		5573FB7F1437B5530015D001 /* libsqlite-3.6.23.1-fts3-ext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5573FB7C1437B53D0015D001 /* libsqlite-3.6.23.1-fts3-ext.a */; };
 		5573FB9D1437B69D0015D001 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5573FB9C1437B69D0015D001 /* libsqlite3.dylib */; };
 		5573FBB41437B7340015D001 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBAF1437B7340015D001 /* FMDatabase.m */; };
@@ -181,6 +183,9 @@
 		556A157113EDAC9A00264E95 /* UVFavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoriteListViewController.h; sourceTree = "<group>"; };
 		556A157213EDAC9A00264E95 /* UVFavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoriteListViewController.m; sourceTree = "<group>"; };
 		556A157313EDAC9A00264E95 /* UVFavoriteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVFavoriteListViewController.xib; sourceTree = "<group>"; };
+		556E8B7B1464835700E53291 /* UVCharBlockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharBlockTableViewCell.h; sourceTree = "<group>"; };
+		556E8B7C1464835700E53291 /* UVCharBlockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharBlockTableViewCell.m; sourceTree = "<group>"; };
+		556E8B7E1464851700E53291 /* UVCharBlockTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVCharBlockTableViewCell.xib; sourceTree = "<group>"; };
 		5573FB741437B53D0015D001 /* sqlite-fts3-extension.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "sqlite-fts3-extension.xcodeproj"; path = "../sqlite-fts3-extension-2.0/sqlite-fts3-extension.xcodeproj"; sourceTree = "<group>"; };
 		5573FB9C1437B69D0015D001 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5573FBAE1437B7340015D001 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -265,6 +270,9 @@
 				1B9E7DC513C0C62300ABD69D /* UnicodeDetailViewController.m */,
 				555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */,
 				1B9E7DC613C0C62300ABD69D /* UVDetailTableViewHeader.xib */,
+				556E8B7B1464835700E53291 /* UVCharBlockTableViewCell.h */,
+				556E8B7C1464835700E53291 /* UVCharBlockTableViewCell.m */,
+				556E8B7E1464851700E53291 /* UVCharBlockTableViewCell.xib */,
 				555C84FB145C8906006191B0 /* UVCharEncodingTableViewCell.h */,
 				555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */,
 				555C84FE145C8935006191B0 /* UVCharEncodingTableViewCell.xib */,
@@ -567,6 +575,7 @@
 				550D95FD14605EA6008D1416 /* marker@2x.png in Resources */,
 				558101851461D9EE003CDCAC /* logo.png in Resources */,
 				558101861461D9EE003CDCAC /* logo@2x.png in Resources */,
+				556E8B7F1464851700E53291 /* UVCharBlockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +637,7 @@
 				55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */,
 				555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */,
 				550D96011460611E008D1416 /* UVCharEncodingHelper.m in Sources */,
+				556E8B7D1464835700E53291 /* UVCharBlockTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

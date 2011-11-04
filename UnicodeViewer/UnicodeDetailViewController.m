@@ -23,9 +23,22 @@
 //
 
 #import "UnicodeDetailViewController.h"
+#import "UnicodeListViewController.h"
 #import "UVChar+Favorits.h"
 #import "UVCharEncodingTableViewCell.h"
+#import "UVCharBlockTableViewCell.h"
 #import "UVCharEncodingHelper.h"
+#import "UVBlock.h"
+
+NSInteger const NUMBER_OF_SECTIONS      = 3;
+NSInteger const NUMBER_OF_COMMON_ROWS   = 1;
+NSInteger const NUMBER_OF_ENCODING_ROWS = 4;
+
+enum UVDetailViewSectionPosition {
+    UVDetailViewSectionPositionCommon   = 0,
+    UVDetailViewSectionPositionEncoding = 1,
+    UVDetailViewSectionPositionRelated  = 2
+};
 
 enum UVDetailViewEncodingPosition {
     UVDetailViewEncodingPositionUnicode = 0,
@@ -38,6 +51,9 @@ enum UVDetailViewEncodingPosition {
 @interface UnicodeDetailViewController(Private)
 
 - (void) updateCharNameLabel:(NSString *) name;
+- (UITableViewCell *)tableView:(UITableView *)tableView encodingCellForRow:(NSInteger)row;
+- (UITableViewCell *)tableView:(UITableView *)tableView commonCellForRow:(NSInteger)row;
+- (UITableViewCell *)tableView:(UITableView *)tableView relatedCellForRow:(NSInteger)row;
         
 @end
 
@@ -52,6 +68,7 @@ enum UVDetailViewEncodingPosition {
 @synthesize tableHeaderView;
 @synthesize tableView;
 @synthesize charEncodingCell;
+@synthesize blockCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -148,54 +165,100 @@ enum UVDetailViewEncodingPosition {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return NUMBER_OF_SECTIONS;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 4;
+    NSInteger rows = 0;
+    if (section == UVDetailViewSectionPositionEncoding) {
+        rows = NUMBER_OF_ENCODING_ROWS;
+    } else if (section == UVDetailViewSectionPositionCommon) {
+        rows = NUMBER_OF_COMMON_ROWS;
+    }    
+    
+    return rows;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = nil;
+    if (indexPath.section == UVDetailViewSectionPositionEncoding) {
+        cell = [self tableView:tView encodingCellForRow:indexPath.row];
+    } else if (indexPath.section == UVDetailViewSectionPositionCommon) {
+        cell = [self tableView:tView commonCellForRow:indexPath.row];
+    }
+    
+    return cell;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView encodingCellForRow:(NSInteger)row {
     UVCharEncodingTableViewCell *cell = (UVCharEncodingTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellEncoding"];
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"UVCharEncodingTableViewCell" owner:self options:nil];
         cell = charEncodingCell;
     }
-    if (indexPath.row == UVDetailViewEncodingPositionUnicode) {
+    if (row == UVDetailViewEncodingPositionUnicode) {
         cell.encodingLable.text = @"Unicode: ";
         cell.valueLable.text    = [UVCharEncodingHelper toUnicodeHex: unicode];
-    } else if (indexPath.row == UVDetailViewEncodingPositionHtmlHex) {
+    } else if (row == UVDetailViewEncodingPositionHtmlHex) {
         cell.encodingLable.text = @"HTML (hex): ";
         cell.valueLable.text    = [UVCharEncodingHelper toHtmlEntityHex: unicode];    
-    } else if (indexPath.row == UVDetailViewEncodingPositionHtmlDec) {
+    } else if (row == UVDetailViewEncodingPositionHtmlDec) {
         cell.encodingLable.text = @"HTML (dec): ";
         cell.valueLable.text    = [UVCharEncodingHelper toHtmlEntityDec: unicode];    
-    } else if (indexPath.row == UVDetailViewEncodingPositionUtf8) {
+    } else if (row == UVDetailViewEncodingPositionUtf8) {
         cell.encodingLable.text = @"UTF-8: ";
         cell.valueLable.text    = [UVCharEncodingHelper toUtf8Hex: unicode];    
     }
     cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView commonCellForRow:(NSInteger)row {
+    UVCharBlockTableViewCell *cell = (UVCharBlockTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellBlock"];
+    if (cell == nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"UVCharBlockTableViewCell" owner:self options:nil];
+        cell = blockCell;
+    }
+    if (row == 0) {
+        cell.blockName.text = self.charInfo.block.name;
+    }
+    return cell;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView relatedCellForRow:(NSInteger)row {
+    return nil;
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Encoding";
+    NSString *title = @"";
+    if (section == UVDetailViewSectionPositionEncoding) {
+        title = @"Encoding";
+    } else if (section == UVDetailViewSectionPositionCommon) {
+        title = @"Common";
+    } else if (section == UVDetailViewSectionPositionRelated) {
+        title = @"See Also";    
+    }
+    return title;
 }
 
 #pragma mark - Table view delegate
 
-/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if (indexPath.section == UVDetailViewSectionPositionCommon && indexPath.row == 0) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        UnicodeListViewController *listViewController = [[UnicodeListViewController alloc] initWithNibName:nil bundle:nil];
+        listViewController.block = self.charInfo.block;
+        [self.navigationController pushViewController:listViewController animated:YES];
+        [listViewController release];
+    }
 }
-*/
-
 
 #pragma mark - The rest
 
