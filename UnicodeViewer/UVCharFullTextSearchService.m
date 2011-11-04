@@ -51,7 +51,7 @@
         return nil;
     }
     
-    FMResultSet *rs = [db executeQuery:@"select ZVALUE from ZUVCHAR_FTS where ZUVCHAR_FTS match ?", searchText];
+    FMResultSet *rs = [db executeQuery:@"select ZVALUE from ZUVCHAR_FTS where ZUVCHAR_FTS match ?", [searchText stringByAppendingString:@"*"]];
     NSMutableArray *resultIds = [[NSMutableArray alloc] init];
     while ([rs next]) {
         [resultIds addObject:[NSNumber numberWithInt:[rs intForColumn:@"ZVALUE"]]];
