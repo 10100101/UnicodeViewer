@@ -23,7 +23,7 @@
 //
 
 BOOL const COPY_DATABASE    = YES;
-BOOL const REPLACE_DATABASE = YES;
+BOOL const REPLACE_DATABASE = NO;
 
 
 #import "UnicodeViewerAppDelegate.h"
