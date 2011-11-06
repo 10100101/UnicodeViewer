@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "UVUIConstants.h"
 #import "UVFavoriteListViewController.h"
 #import "UnicodeDetailViewController.h"
 #import "UVFavoritCharRepository.h"
@@ -60,7 +61,7 @@
     [super viewDidLoad];
     [self loadData];
     
-    self.tableView.rowHeight = 50;
+    self.tableView.rowHeight = CHAR_LIST_TABLE_VIEW_CELL_HEIGHT;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

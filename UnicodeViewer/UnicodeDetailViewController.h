@@ -28,9 +28,12 @@
 @protocol UVFavoriteStateChangedDelegate;
 @class UVCharEncodingTableViewCell;
 @class UVCharBlockTableViewCell;
+@class UVRelatedCharTableViewCell;
 
 @interface UnicodeDetailViewController : UIViewController {
 
+    NSArray *relatedChars;
+    
 }
 
 @property(nonatomic, assign) IBOutlet UILabel *charLabel; 
@@ -39,6 +42,7 @@
 @property(nonatomic, assign) IBOutlet UITableView *tableView;
 @property(nonatomic, assign) IBOutlet UVCharEncodingTableViewCell *charEncodingCell;
 @property(nonatomic, assign) IBOutlet UVCharBlockTableViewCell *blockCell;
+@property(nonatomic, assign) IBOutlet UVRelatedCharTableViewCell *relatedCharCell;
 
 @property(nonatomic, assign) int unicode;
 @property(nonatomic, assign) UVChar *charInfo;

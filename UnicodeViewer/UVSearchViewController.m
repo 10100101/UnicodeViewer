@@ -22,6 +22,7 @@
 //  along with UnicodeViewer.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import "UVUIConstants.h"
 #import "UVSearchViewController.h"
 #import "UVCharRepository.h"
 #import "UVCharFullTextSearchService.h"
@@ -68,7 +69,7 @@ double const SEARCH_DELAY = 1.0;
 {
     [super viewDidLoad];
     
-    self.searchDisplayController.searchResultsTableView.rowHeight = 50;
+    self.searchDisplayController.searchResultsTableView.rowHeight = CHAR_LIST_TABLE_VIEW_CELL_HEIGHT;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

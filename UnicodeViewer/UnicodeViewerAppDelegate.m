@@ -22,6 +22,10 @@
 //  along with UnicodeViewer.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+BOOL const COPY_DATABASE    = YES;
+BOOL const REPLACE_DATABASE = YES;
+
+
 #import "UnicodeViewerAppDelegate.h"
 
 @implementation UnicodeViewerAppDelegate
@@ -161,7 +165,10 @@
      */
     NSFileManager *fileManager = [NSFileManager defaultManager];
     // If the expected store doesn't exist, copy the default store.
-    if (![fileManager fileExistsAtPath:storePath]) {
+    if (REPLACE_DATABASE && [fileManager fileExistsAtPath:storePath]) {
+        [fileManager removeItemAtPath:storePath error:NULL];
+    }
+    if (COPY_DATABASE && ![fileManager fileExistsAtPath:storePath]) {
         NSString *defaultStorePath = [[NSBundle mainBundle] pathForResource:@"UVDB" ofType:@"sqlite"];
         if (defaultStorePath) {
             [fileManager copyItemAtPath:defaultStorePath toPath:storePath error:NULL];

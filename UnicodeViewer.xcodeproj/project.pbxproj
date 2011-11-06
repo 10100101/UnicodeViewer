@@ -50,7 +50,6 @@
 		551A13D014116261000053DC /* UVSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A13CE14116261000053DC /* UVSearchViewController.xib */; };
 		552BCF32145308C400DCF4C7 /* UVFavoritCharRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 552BCF31145308C400DCF4C7 /* UVFavoritCharRepository.m */; };
 		553D3E771451F0D1006C305F /* UVFavoritChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E761451F0D1006C305F /* UVFavoritChar.m */; };
-		553D3E7A1451F0F1006C305F /* UVChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E791451F0F1006C305F /* UVChar.m */; };
 		553D3E7D1451F112006C305F /* UVBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E7C1451F112006C305F /* UVBlock.m */; };
 		555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */; };
 		555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */; };
@@ -74,6 +73,10 @@
 		558101861461D9EE003CDCAC /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 558101841461D9EE003CDCAC /* logo@2x.png */; };
 		559F3E0A13D0C83100874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0913D0C83100874BE4 /* CoreData.framework */; };
 		559F3E0C13D0C85900874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0B13D0C85900874BE4 /* CoreData.framework */; };
+		55A7CCD014672930001315BE /* UVRelatedChars.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7CCCF14672930001315BE /* UVRelatedChars.m */; };
+		55A7CCD31467294A001315BE /* UVChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7CCD21467294A001315BE /* UVChar.m */; };
+		55A7CCD614672A5C001315BE /* UVRelatedCharTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A7CCD514672A5C001315BE /* UVRelatedCharTableViewCell.m */; };
+		55A7CCD814672AEF001315BE /* UVRelatedCharTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A7CCD714672AEF001315BE /* UVRelatedCharTableViewCell.xib */; };
 		55BF533013D1EDAF000F4852 /* UVBlockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */; };
 		55CD98D71438F4D50081B790 /* ios-fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D51438F4D50081B790 /* ios-fabric.png */; };
 		55CD98D81438F4D50081B790 /* ios-fabric@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CD98D61438F4D50081B790 /* ios-fabric@2x.png */; };
@@ -167,8 +170,6 @@
 		552BCF31145308C400DCF4C7 /* UVFavoritCharRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritCharRepository.m; sourceTree = "<group>"; };
 		553D3E751451F0D1006C305F /* UVFavoritChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoritChar.h; sourceTree = "<group>"; };
 		553D3E761451F0D1006C305F /* UVFavoritChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritChar.m; sourceTree = "<group>"; };
-		553D3E781451F0F1006C305F /* UVChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVChar.h; sourceTree = "<group>"; };
-		553D3E791451F0F1006C305F /* UVChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVChar.m; sourceTree = "<group>"; };
 		553D3E7B1451F112006C305F /* UVBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlock.h; sourceTree = "<group>"; };
 		553D3E7C1451F112006C305F /* UVBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlock.m; sourceTree = "<group>"; };
 		555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeDetailViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +202,14 @@
 		558101841461D9EE003CDCAC /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		559F3E0913D0C83100874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		559F3E0B13D0C85900874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		55A7CCCD146725E2001315BE /* UVUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVUIConstants.h; sourceTree = "<group>"; };
+		55A7CCCE14672930001315BE /* UVRelatedChars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVRelatedChars.h; sourceTree = "<group>"; };
+		55A7CCCF14672930001315BE /* UVRelatedChars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVRelatedChars.m; sourceTree = "<group>"; };
+		55A7CCD11467294A001315BE /* UVChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVChar.h; sourceTree = "<group>"; };
+		55A7CCD21467294A001315BE /* UVChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVChar.m; sourceTree = "<group>"; };
+		55A7CCD414672A5C001315BE /* UVRelatedCharTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVRelatedCharTableViewCell.h; sourceTree = "<group>"; };
+		55A7CCD514672A5C001315BE /* UVRelatedCharTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVRelatedCharTableViewCell.m; sourceTree = "<group>"; };
+		55A7CCD714672AEF001315BE /* UVRelatedCharTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVRelatedCharTableViewCell.xib; sourceTree = "<group>"; };
 		55BF532E13D1EDAF000F4852 /* UVBlockRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlockRepository.h; sourceTree = "<group>"; };
 		55BF532F13D1EDAF000F4852 /* UVBlockRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlockRepository.m; sourceTree = "<group>"; };
 		55CD98D51438F4D50081B790 /* ios-fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-fabric.png"; sourceTree = "<group>"; };
@@ -285,10 +294,14 @@
 				1BF3E4F113F40F61009F401E /* UVCharListTableViewCell.h */,
 				1BF3E4F213F40F62009F401E /* UVCharListTableViewCell.m */,
 				1BF3E4EE13F40520009F401E /* UVCharListTableViewCell.xib */,
+				55A7CCD414672A5C001315BE /* UVRelatedCharTableViewCell.h */,
+				55A7CCD514672A5C001315BE /* UVRelatedCharTableViewCell.m */,
+				55A7CCD714672AEF001315BE /* UVRelatedCharTableViewCell.xib */,
 				551A13CC14116261000053DC /* UVSearchViewController.h */,
 				551A13CD14116261000053DC /* UVSearchViewController.m */,
 				551A13CE14116261000053DC /* UVSearchViewController.xib */,
 				1B1A96E013C08F5D001E2AD5 /* MainWindow.xib */,
+				55A7CCCD146725E2001315BE /* UVUIConstants.h */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -377,10 +390,12 @@
 			isa = PBXGroup;
 			children = (
 				1B3F648013CEC5C80065917A /* UVModel.xcdatamodeld */,
+				55A7CCD11467294A001315BE /* UVChar.h */,
+				55A7CCD21467294A001315BE /* UVChar.m */,
+				55A7CCCE14672930001315BE /* UVRelatedChars.h */,
+				55A7CCCF14672930001315BE /* UVRelatedChars.m */,
 				553D3E7B1451F112006C305F /* UVBlock.h */,
 				553D3E7C1451F112006C305F /* UVBlock.m */,
-				553D3E781451F0F1006C305F /* UVChar.h */,
-				553D3E791451F0F1006C305F /* UVChar.m */,
 				55CD98D81438F4D50081B793 /* UVChar+Favorits.h */,
 				55CD98D81438F4D50081B791 /* UVChar+Favorits.m */,
 				553D3E751451F0D1006C305F /* UVFavoritChar.h */,
@@ -576,6 +591,7 @@
 				558101851461D9EE003CDCAC /* logo.png in Resources */,
 				558101861461D9EE003CDCAC /* logo@2x.png in Resources */,
 				556E8B7F1464851700E53291 /* UVCharBlockTableViewCell.xib in Resources */,
+				55A7CCD814672AEF001315BE /* UVRelatedCharTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,13 +647,15 @@
 				5573FBB61437B7340015D001 /* FMResultSet.m in Sources */,
 				5573FBB91437B77B0015D001 /* UVCharFullTextSearchService.m in Sources */,
 				553D3E771451F0D1006C305F /* UVFavoritChar.m in Sources */,
-				553D3E7A1451F0F1006C305F /* UVChar.m in Sources */,
 				553D3E7D1451F112006C305F /* UVBlock.m in Sources */,
 				552BCF32145308C400DCF4C7 /* UVFavoritCharRepository.m in Sources */,
 				55CD98D81438F4D50081B792 /* UVChar+Favorits.m in Sources */,
 				555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */,
 				550D96011460611E008D1416 /* UVCharEncodingHelper.m in Sources */,
 				556E8B7D1464835700E53291 /* UVCharBlockTableViewCell.m in Sources */,
+				55A7CCD014672930001315BE /* UVRelatedChars.m in Sources */,
+				55A7CCD31467294A001315BE /* UVChar.m in Sources */,
+				55A7CCD614672A5C001315BE /* UVRelatedCharTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

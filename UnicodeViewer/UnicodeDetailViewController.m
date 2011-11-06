@@ -27,8 +27,11 @@
 #import "UVChar+Favorits.h"
 #import "UVCharEncodingTableViewCell.h"
 #import "UVCharBlockTableViewCell.h"
+#import "UVRelatedCharTableViewCell.h"
 #import "UVCharEncodingHelper.h"
 #import "UVBlock.h"
+#import "UVChar.h"
+#import "UVRelatedChars.h"
 
 NSInteger const NUMBER_OF_SECTIONS      = 3;
 NSInteger const NUMBER_OF_COMMON_ROWS   = 1;
@@ -55,6 +58,8 @@ enum UVDetailViewEncodingPosition {
 - (UITableViewCell *)tableView:(UITableView *)tableView commonCellForRow:(NSInteger)row;
 - (UITableViewCell *)tableView:(UITableView *)tableView relatedCellForRow:(NSInteger)row;
         
+- (NSArray *) sortedRelatedCharsFrom;
+
 @end
 
 
@@ -69,6 +74,7 @@ enum UVDetailViewEncodingPosition {
 @synthesize tableView;
 @synthesize charEncodingCell;
 @synthesize blockCell;
+@synthesize relatedCharCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -82,6 +88,7 @@ enum UVDetailViewEncodingPosition {
 - (void)dealloc
 {
     [super dealloc];
+    [relatedChars release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,6 +120,11 @@ enum UVDetailViewEncodingPosition {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Date
+    relatedChars = [[self sortedRelatedCharsFrom] retain];
+    
+    // GUI    
     [[NSBundle mainBundle] loadNibNamed:@"UVDetailTableViewHeader" owner:self options:nil];
 
     self.tableHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ios-fabric@2x.png"]];
@@ -142,6 +154,14 @@ enum UVDetailViewEncodingPosition {
         action:@selector(addToFavorites:)];
     self.navigationItem.rightBarButtonItem = addToFavs;
     [addToFavs release];
+}
+
+- (NSArray *) sortedRelatedCharsFrom {
+    NSArray * result = nil;
+    if (self.charInfo && self.charInfo.related) {
+        result = [self.charInfo.related sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"related.value" ascending:YES]]];
+    }
+    return result;
 }
 
 - (void) updateCharNameLabel:(NSString *) name {
@@ -176,7 +196,9 @@ enum UVDetailViewEncodingPosition {
         rows = NUMBER_OF_ENCODING_ROWS;
     } else if (section == UVDetailViewSectionPositionCommon) {
         rows = NUMBER_OF_COMMON_ROWS;
-    }    
+    } else if (section == UVDetailViewSectionPositionRelated) {
+        rows = [relatedChars count];
+    }
     
     return rows;
 }
@@ -188,6 +210,8 @@ enum UVDetailViewEncodingPosition {
         cell = [self tableView:tView encodingCellForRow:indexPath.row];
     } else if (indexPath.section == UVDetailViewSectionPositionCommon) {
         cell = [self tableView:tView commonCellForRow:indexPath.row];
+    } else if (indexPath.section == UVDetailViewSectionPositionRelated) {
+        cell = [self tableView:tView relatedCellForRow:indexPath.row];
     }
     
     return cell;
@@ -231,7 +255,16 @@ enum UVDetailViewEncodingPosition {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView relatedCellForRow:(NSInteger)row {
-    return nil;
+    UVRelatedCharTableViewCell *cell = (UVRelatedCharTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"UnicodeCharCellRelated"];
+    if (cell == nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"UVRelatedCharTableViewCell" owner:self options:nil];
+        cell = self.relatedCharCell;
+    }
+    UVRelatedChars *relatedChar = (UVRelatedChars *)[relatedChars objectAtIndex:row];
+    cell.unicodeNameLabel.text  = relatedChar.related.name;
+    cell.charLabel.text         = [NSString stringWithFormat:@"%C", [relatedChar.related.value intValue]];
+    cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", [relatedChar.related.value intValue]]; 
+    return cell;
 }
 
 
@@ -257,6 +290,19 @@ enum UVDetailViewEncodingPosition {
         listViewController.block = self.charInfo.block;
         [self.navigationController pushViewController:listViewController animated:YES];
         [listViewController release];
+    }
+    if (indexPath.section == UVDetailViewSectionPositionRelated) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        UnicodeDetailViewController *detailViewController = [[UnicodeDetailViewController alloc] initWithNibName:nil bundle:nil];
+        UVRelatedChars *relatedChar = (UVRelatedChars *)[relatedChars objectAtIndex:indexPath.row];
+        UVChar *cInfo = relatedChar.related;
+        int c = [cInfo.value intValue];
+        detailViewController.unicode  = c;
+        detailViewController.charInfo = cInfo;
+        detailViewController.delegate = self.delegate;
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
+        [detailViewController release];
     }
 }
 

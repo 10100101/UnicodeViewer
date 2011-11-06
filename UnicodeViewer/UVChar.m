@@ -2,8 +2,10 @@
 //  UVChar.m
 //  UnicodeViewer
 //
-//  Created by Ulrich von Poblotzki on 21.10.11.
+//  Created by Ulrich von Poblotzki on 06.11.11.
 //  Copyright 2011 Ulrich von Poblotzki.
+//
+//  This file is part of UnicodeViewer.
 //
 //  UnicodeViewer is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -22,13 +24,16 @@
 #import "UVChar.h"
 #import "UVBlock.h"
 #import "UVFavoritChar.h"
+#import "UVRelatedChars.h"
 
 
 @implementation UVChar
 @dynamic valueHex;
-@dynamic value;
 @dynamic name;
+@dynamic value;
 @dynamic block;
+@dynamic related;
+@dynamic relatedParent;
 @dynamic favorit;
 
 @end

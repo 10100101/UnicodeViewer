@@ -22,6 +22,7 @@
 //  along with UnicodeViewer.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import "UVUIConstants.h"
 #import "UnicodeListViewController.h"
 #import "UnicodeDetailViewController.h"
 #import "UVCharRepository.h"
@@ -66,7 +67,7 @@
     self.navigationItem.backBarButtonItem.title = @"Blocks";
     self.navigationItem.title = block.name;
 
-    self.tableView.rowHeight = 50;
+    self.tableView.rowHeight = CHAR_LIST_TABLE_VIEW_CELL_HEIGHT;
     
     // Init char infos
     //UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
