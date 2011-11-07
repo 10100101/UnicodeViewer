@@ -30,7 +30,7 @@
 @class UVCharBlockTableViewCell;
 @class UVRelatedCharTableViewCell;
 
-@interface UnicodeDetailViewController : UIViewController {
+@interface UnicodeDetailViewController : UIViewController <UIActionSheetDelegate> {
 
     NSArray *relatedChars;
     

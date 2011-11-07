@@ -51,6 +51,11 @@ enum UVDetailViewEncodingPosition {
     UVDetailViewEncodingPositionUtf16   = 4
 };
 
+enum UVDetailViewActionSheetPosition {
+    UVDetailViewActionSheetAddToFavorites = 0,
+    UVDetailViewActionSheetOpenDefinition = 1
+};
+
 @interface UnicodeDetailViewController(Private)
 
 - (void) updateCharNameLabel:(NSString *) name;
@@ -101,17 +106,25 @@ enum UVDetailViewEncodingPosition {
 
 #pragma mark - Actions
 
-- (IBAction) addToFavorites:(id) sender {
-    NSString *imageName = @"heart-d";
-    if (charInfo) {
-        if ([charInfo hasFavorit]) {
-            imageName = @"heart-l";
-        }
-    }    
-    self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:imageName];
-    
+- (void) addToFavorites {
     if (delegate) {
         [delegate favoriteStateDidChange:self forCharWithNumber:[NSNumber numberWithInt:unicode]];
+    }
+}
+
+- (void) showActionSheet {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Add to Favorites", @"Lookup in Wikipedia", nil];
+    [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+    [actionSheet release];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == UVDetailViewActionSheetAddToFavorites) {
+        [self addToFavorites];
+    } else if (buttonIndex == UVDetailViewActionSheetOpenDefinition) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%C", [self.charInfo.value intValue]]]];
     }
 }
 
@@ -138,22 +151,11 @@ enum UVDetailViewEncodingPosition {
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
     [self updateCharNameLabel:charInfo.name];
 
-    NSString *imageName = @"heart-l";
-    if (charInfo) {
-        if ([charInfo hasFavorit]) {
-            imageName = @"heart-d";
-        }
-    }
-    
-    UIBarButtonItem *addToFavs = 
-    [[UIBarButtonItem alloc] 
-        initWithImage:[UIImage 
-        imageNamed:imageName] 
-        style:UIBarButtonItemStylePlain 
-        target:self 
-        action:@selector(addToFavorites:)];
-    self.navigationItem.rightBarButtonItem = addToFavs;
-    [addToFavs release];
+    UIBarButtonItem *showActionSheet = 
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction 
+         target:self action:@selector(showActionSheet)];
+    self.navigationItem.rightBarButtonItem = showActionSheet;
+    [showActionSheet release];
 }
 
 - (NSArray *) sortedRelatedCharsFrom {
