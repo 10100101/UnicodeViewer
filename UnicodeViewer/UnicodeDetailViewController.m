@@ -22,6 +22,7 @@
 //  along with UnicodeViewer.  If not, see <http://www.gnu.org/licenses/>.
 //
 
+#import "UVUIConstants.h"
 #import "UnicodeDetailViewController.h"
 #import "UnicodeListViewController.h"
 #import "UVChar+Favorits.h"
@@ -32,6 +33,7 @@
 #import "UVBlock.h"
 #import "UVChar.h"
 #import "UVRelatedChars.h"
+#import "UVFavoritRibbonManager.h"
 
 NSInteger const NUMBER_OF_SECTIONS      = 3;
 NSInteger const NUMBER_OF_COMMON_ROWS   = 1;
@@ -94,6 +96,7 @@ enum UVDetailViewActionSheetPosition {
 {
     [super dealloc];
     [relatedChars release];
+    [ribbonManager release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,13 +110,18 @@ enum UVDetailViewActionSheetPosition {
 #pragma mark - Actions
 
 - (void) addToFavorites {
+    [ribbonManager toggel];
     if (delegate) {
         [delegate favoriteStateDidChange:self forCharWithNumber:[NSNumber numberWithInt:unicode]];
     }
 }
 
 - (void) showActionSheet {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Add to Favorites", @"Lookup in Wikipedia", nil];
+    NSString *favoritButtonTitle = @"Add to Favorites";
+    if ([self.charInfo hasFavorit]) {
+        favoritButtonTitle = @"Remove from Favorites";
+    }
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:favoritButtonTitle, @"Lookup in Wikipedia", nil];
     [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
     [actionSheet release];
 }
@@ -145,7 +153,7 @@ enum UVDetailViewActionSheetPosition {
     [bgView addSubview:self.tableHeaderView];
     self.tableView.tableHeaderView = bgView;
     [bgView release];
-                      
+                          
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
     charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
@@ -156,6 +164,13 @@ enum UVDetailViewActionSheetPosition {
          target:self action:@selector(showActionSheet)];
     self.navigationItem.rightBarButtonItem = showActionSheet;
     [showActionSheet release];
+    
+    // Show favorit state
+    ribbonManager = [[UVFavoritRibbonManager alloc] initWithParent:self.tableHeaderView];
+    if ([charInfo hasFavorit]) {
+        [ribbonManager showRibbonWithAnimation:NO];
+    }
+    
 }
 
 - (NSArray *) sortedRelatedCharsFrom {
@@ -305,6 +320,14 @@ enum UVDetailViewActionSheetPosition {
         
         [self.navigationController pushViewController:detailViewController animated:YES];
         [detailViewController release];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == UVDetailViewSectionPositionRelated) {
+        return CHAR_LIST_TABLE_VIEW_CELL_HEIGHT;
+    } else {
+        return 44;
     }
 }
 

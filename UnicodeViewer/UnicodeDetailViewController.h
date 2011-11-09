@@ -29,10 +29,12 @@
 @class UVCharEncodingTableViewCell;
 @class UVCharBlockTableViewCell;
 @class UVRelatedCharTableViewCell;
+@class UVFavoritRibbonManager;
 
 @interface UnicodeDetailViewController : UIViewController <UIActionSheetDelegate> {
 
     NSArray *relatedChars;
+    UVFavoritRibbonManager *ribbonManager;
     
 }
 
