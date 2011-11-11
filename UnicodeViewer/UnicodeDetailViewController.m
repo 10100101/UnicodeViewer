@@ -94,9 +94,10 @@ enum UVDetailViewActionSheetPosition {
 
 - (void)dealloc
 {
-    [super dealloc];
     [relatedChars release];
     [ribbonManager release];
+    [tableHeaderView release];
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

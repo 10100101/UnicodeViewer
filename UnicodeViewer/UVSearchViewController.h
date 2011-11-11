@@ -34,6 +34,7 @@
 
 @property(nonatomic, retain) NSMutableArray *charInfos; 
 @property(nonatomic, assign) IBOutlet UVCharListTableViewCell *charListCell;
+@property(nonatomic, retain) IBOutlet UIView *searchActivityView;
 @property(nonatomic, retain) NSOperationQueue *operationQueue;
 
 @end

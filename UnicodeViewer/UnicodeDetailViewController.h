@@ -40,7 +40,7 @@
 
 @property(nonatomic, assign) IBOutlet UILabel *charLabel; 
 @property(nonatomic, assign) IBOutlet UILabel *charNameLabel; 
-@property(nonatomic, assign) IBOutlet UIView  *tableHeaderView;
+@property(nonatomic, retain) IBOutlet UIView  *tableHeaderView;
 @property(nonatomic, assign) IBOutlet UITableView *tableView;
 @property(nonatomic, assign) IBOutlet UVCharEncodingTableViewCell *charEncodingCell;
 @property(nonatomic, assign) IBOutlet UVCharBlockTableViewCell *blockCell;

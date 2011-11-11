@@ -49,6 +49,7 @@
 		551A13CF14116261000053DC /* UVSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551A13CD14116261000053DC /* UVSearchViewController.m */; };
 		551A13D014116261000053DC /* UVSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551A13CE14116261000053DC /* UVSearchViewController.xib */; };
 		552BCF32145308C400DCF4C7 /* UVFavoritCharRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 552BCF31145308C400DCF4C7 /* UVFavoritCharRepository.m */; };
+		55328426146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55328425146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib */; };
 		553D3E771451F0D1006C305F /* UVFavoritChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E761451F0D1006C305F /* UVFavoritChar.m */; };
 		553D3E7D1451F112006C305F /* UVBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E7C1451F112006C305F /* UVBlock.m */; };
 		555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */; };
@@ -171,6 +172,7 @@
 		551A13CE14116261000053DC /* UVSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVSearchViewController.xib; sourceTree = "<group>"; };
 		552BCF30145308C400DCF4C7 /* UVFavoritCharRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoritCharRepository.h; sourceTree = "<group>"; };
 		552BCF31145308C400DCF4C7 /* UVFavoritCharRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritCharRepository.m; sourceTree = "<group>"; };
+		55328425146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UVSearchActivityOverlay.xib; sourceTree = "<group>"; };
 		553D3E751451F0D1006C305F /* UVFavoritChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVFavoritChar.h; sourceTree = "<group>"; };
 		553D3E761451F0D1006C305F /* UVFavoritChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritChar.m; sourceTree = "<group>"; };
 		553D3E7B1451F112006C305F /* UVBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlock.h; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				551A13CC14116261000053DC /* UVSearchViewController.h */,
 				551A13CD14116261000053DC /* UVSearchViewController.m */,
 				551A13CE14116261000053DC /* UVSearchViewController.xib */,
+				55328425146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib */,
 				55A1903A146B1E3F0040C188 /* UVFavoritRibbonManager.h */,
 				55A1903B146B1E3F0040C188 /* UVFavoritRibbonManager.m */,
 				1B1A96E013C08F5D001E2AD5 /* MainWindow.xib */,
@@ -605,6 +608,7 @@
 				55A7CCD814672AEF001315BE /* UVRelatedCharTableViewCell.xib in Resources */,
 				55A19038146B1A860040C188 /* bookmark-ribbon.png in Resources */,
 				55A19039146B1A860040C188 /* bookmark-ribbon@2x.png in Resources */,
+				55328426146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

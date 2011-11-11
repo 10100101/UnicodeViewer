@@ -44,13 +44,13 @@ double const SEARCH_DELAY = 1.0;
 
 @synthesize charInfos;
 @synthesize charListCell;
+@synthesize searchActivityView;
 @synthesize operationQueue;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -71,6 +71,8 @@ double const SEARCH_DELAY = 1.0;
     
     self.searchDisplayController.searchResultsTableView.rowHeight = CHAR_LIST_TABLE_VIEW_CELL_HEIGHT;
 
+    [[NSBundle mainBundle] loadNibNamed:@"UVSearchActivityOverlay" owner:self options:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -112,6 +114,7 @@ double const SEARCH_DELAY = 1.0;
 }
 
 - (void) searchFor:(NSString *) searchText {
+    //[self.searchDisplayController.searchResultsTableView performSelectorOnMainThread:@selector(addSubview:) withObject:self.searchActivityView waitUntilDone:YES];
     NSMutableArray *charInfoData = nil;    
     if ([searchText length] == 1) {
         UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
@@ -140,6 +143,7 @@ double const SEARCH_DELAY = 1.0;
 }
 
 - (void) updateData:(NSMutableArray *)data {
+    [self.searchActivityView removeFromSuperview];
     NSLog(@"Updating tableView with data");
     if (data) {
         UVCharRepository *repository = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
@@ -266,6 +270,7 @@ double const SEARCH_DELAY = 1.0;
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self updateSearchTrigger:searchText];
+    [self.searchDisplayController.searchResultsTableView addSubview:self.searchActivityView];
 }
 
 #pragma mark - Favorite state delegate
@@ -281,6 +286,7 @@ double const SEARCH_DELAY = 1.0;
     [charInfos release];
     [operationQueue release];
     [_searchTriger release];
+    [searchActivityView release];
 
     [super dealloc];
 }
