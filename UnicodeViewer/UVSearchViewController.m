@@ -28,6 +28,7 @@
 #import "UVCharFullTextSearchService.h"
 #import "UVCoreDataHelp.h"
 #import "UVChar.h"
+#import "UVChar+Favorits.h"
 
 double const SEARCH_DELAY = 1.0;
 
@@ -190,6 +191,10 @@ double const SEARCH_DELAY = 1.0;
         cell.unicodeNameLabel.text = @""; 
     }
     cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%06X", c]; 
+    if ([charInfo hasFavorit]) {
+        UIImage *favoritEgdeImage = [UIImage imageNamed:@"favorit-edge.png"];
+        cell.favoritEdgeView.image = favoritEgdeImage;        
+    }
     
     return cell;
 }
