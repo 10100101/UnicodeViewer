@@ -290,7 +290,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>90</integer>
+					<integer>133</integer>
 				</dict>
 			</array>
 		</dict>
@@ -914,10 +914,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>342823563.86225098</real>
-		<string>{9363, 3034}</string>
+		<real>342824220.949902</real>
+		<string>{2969, 1160}</string>
 		<false/>
-		<string>{10645, 0}</string>
+		<string>{3890, 0}</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -927,7 +927,7 @@
 			<key>$classname</key>
 			<string>NSDictionary</string>
 		</dict>
-		<string>-tableView:relatedCellForRow:</string>
+		<string>-showActionSheet</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -980,7 +980,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {977, 850}}</string>
+		<string>{{0, 0}, {977, 565}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11288,19 +11288,19 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>175</integer>
+					<integer>84</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>176</integer>
+					<integer>85</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>177</integer>
+					<integer>86</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>178</integer>
+					<integer>87</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
@@ -11323,9 +11323,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>342132760.77251899</real>
+		<real>342824036.96467298</real>
 		<string>{0, 1451}</string>
-		<string>{1127, 0}</string>
+		<string>{1193, 107}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11892,9 +11892,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>342823563.86165899</real>
-		<string>{9363, 3034}</string>
-		<string>{10645, 0}</string>
+		<real>342824220.94935799</real>
+		<string>{2969, 1160}</string>
+		<string>{3890, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -26917,7 +26917,7 @@
 				<integer>2035</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>342823559.22995698</real>
+			<real>342824201.70047301</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -26928,7 +26928,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 21:45</string>
+		<string>Today at 21:56</string>
 		<integer>234</integer>
 		<string>sqlite-3.6.23.1-fts3-ext</string>
 		<dict>
@@ -27058,7 +27058,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>2063</integer>
+					<integer>2064</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -27101,7 +27101,7 @@
 				<integer>2051</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UnicodeListViewController.m</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharEncodingTableViewCell.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27119,7 +27119,7 @@
 				<integer>2053</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.xib</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UnicodeListViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27137,7 +27137,7 @@
 				<integer>2055</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.m</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27155,7 +27155,7 @@
 				<integer>2057</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.h</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27173,7 +27173,7 @@
 				<integer>2059</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharListTableViewCell.h</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVRelatedCharTableViewCell.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -27189,6 +27189,24 @@
 			<dict>
 				<key>CF$UID</key>
 				<integer>2061</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharListTableViewCell.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>97</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>2063</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharBlockTableViewCell.xib</string>
@@ -27223,28 +27241,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>2064</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharListTableViewCell.xib</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>97</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
 				<integer>2066</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharListTableViewCell.m</string>
+		<string>file://localhost/Users/uli/Desktop/UnicodeViewer/UnicodeViewer/UVCharListTableViewCell.xib</string>
 	</array>
 	<key>$top</key>
 	<dict>

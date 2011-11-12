@@ -54,8 +54,10 @@ enum UVDetailViewEncodingPosition {
 };
 
 enum UVDetailViewActionSheetPosition {
-    UVDetailViewActionSheetAddToFavorites = 0,
-    UVDetailViewActionSheetOpenDefinition = 1
+    UVDetailViewActionSheetCopy           = 0,
+    UVDetailViewActionSheetAddToFavorites = 1,
+    UVDetailViewActionSheetOpenDefinition = 2, 
+    UVDetailViewActionSheetFileFormatInfo = 3
 };
 
 @interface UnicodeDetailViewController(Private)
@@ -122,7 +124,7 @@ enum UVDetailViewActionSheetPosition {
     if ([self.charInfo hasFavorit]) {
         favoritButtonTitle = @"Remove from Favorites";
     }
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:favoritButtonTitle, @"Lookup in Wikipedia", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy Character", favoritButtonTitle, @"Lookup in Wikipedia", @"Open FileFormat.Info", nil];
     [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
     [actionSheet release];
 }
@@ -134,6 +136,11 @@ enum UVDetailViewActionSheetPosition {
         [self addToFavorites];
     } else if (buttonIndex == UVDetailViewActionSheetOpenDefinition) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://en.wikipedia.org/wiki/%C", [self.charInfo.value intValue]]]];
+    } else if (buttonIndex == UVDetailViewActionSheetFileFormatInfo) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.fileformat.info/info/unicode/char/%04X/index.htm", [self.charInfo.value intValue]]]];
+    } else if (buttonIndex == UVDetailViewActionSheetCopy) {
+        UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+        [gpBoard setString:[NSString stringWithFormat:@"%C", unicode]];   
     }
 }
 
