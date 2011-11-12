@@ -28,5 +28,6 @@
 @property(nonatomic, retain) IBOutlet UILabel *unicodeNameLabel; 
 @property(nonatomic, retain) IBOutlet UILabel *charHexValueLabel;
 @property(nonatomic, retain) IBOutlet UILabel *charLabel;
+@property(nonatomic, retain) IBOutlet UIImageView *favoritEdgeView;
 
 @end

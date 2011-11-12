@@ -52,6 +52,8 @@
 		55328426146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55328425146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib */; };
 		553D3E771451F0D1006C305F /* UVFavoritChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E761451F0D1006C305F /* UVFavoritChar.m */; };
 		553D3E7D1451F112006C305F /* UVBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 553D3E7C1451F112006C305F /* UVBlock.m */; };
+		553D9A21146F0FF9001A0BED /* favorit-edge.png in Resources */ = {isa = PBXBuildFile; fileRef = 553D9A1F146F0FF9001A0BED /* favorit-edge.png */; };
+		553D9A22146F0FF9001A0BED /* favorit-edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 553D9A20146F0FF9001A0BED /* favorit-edge@2x.png */; };
 		555C84FA145C8399006191B0 /* UnicodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */; };
 		555C84FD145C8906006191B0 /* UVCharEncodingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */; };
 		555C84FF145C8935006191B0 /* UVCharEncodingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555C84FE145C8935006191B0 /* UVCharEncodingTableViewCell.xib */; };
@@ -177,6 +179,8 @@
 		553D3E761451F0D1006C305F /* UVFavoritChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVFavoritChar.m; sourceTree = "<group>"; };
 		553D3E7B1451F112006C305F /* UVBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVBlock.h; sourceTree = "<group>"; };
 		553D3E7C1451F112006C305F /* UVBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVBlock.m; sourceTree = "<group>"; };
+		553D9A1F146F0FF9001A0BED /* favorit-edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorit-edge.png"; sourceTree = "<group>"; };
+		553D9A20146F0FF9001A0BED /* favorit-edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorit-edge@2x.png"; sourceTree = "<group>"; };
 		555C84F9145C8399006191B0 /* UnicodeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeDetailViewController.xib; sourceTree = "<group>"; };
 		555C84FB145C8906006191B0 /* UVCharEncodingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharEncodingTableViewCell.h; sourceTree = "<group>"; };
 		555C84FC145C8906006191B0 /* UVCharEncodingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharEncodingTableViewCell.m; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 		1BD38F2413CA3ED00017FC59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				553D9A1F146F0FF9001A0BED /* favorit-edge.png */,
+				553D9A20146F0FF9001A0BED /* favorit-edge@2x.png */,
 				55A19036146B1A860040C188 /* bookmark-ribbon.png */,
 				55A19037146B1A860040C188 /* bookmark-ribbon@2x.png */,
 				558101831461D9EE003CDCAC /* logo.png */,
@@ -609,6 +615,8 @@
 				55A19038146B1A860040C188 /* bookmark-ribbon.png in Resources */,
 				55A19039146B1A860040C188 /* bookmark-ribbon@2x.png in Resources */,
 				55328426146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib in Resources */,
+				553D9A21146F0FF9001A0BED /* favorit-edge.png in Resources */,
+				553D9A22146F0FF9001A0BED /* favorit-edge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

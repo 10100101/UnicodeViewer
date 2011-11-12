@@ -28,6 +28,8 @@
 #import "UVCharRepository.h"
 #import "UVCoreDataHelp.h"
 #import "UVCharListTableViewCell.h"
+#import "UVChar.h"
+#import "UVChar+Favorits.h"
 
 @implementation UnicodeListViewController
 
@@ -154,6 +156,11 @@
     cell.charLabel.text         = [NSString stringWithFormat:@"%C", c];
     cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", c]; 
         
+    if ([charInfo hasFavorit]) {
+        UIImage *favoritEgdeImage = [UIImage imageNamed:@"favorit-edge.png"];
+        cell.favoritEdgeView.image = favoritEgdeImage;        
+    }
+    
     return cell;
 }
 

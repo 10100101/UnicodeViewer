@@ -282,6 +282,10 @@ enum UVDetailViewActionSheetPosition {
     cell.unicodeNameLabel.text  = relatedChar.related.name;
     cell.charLabel.text         = [NSString stringWithFormat:@"%C", [relatedChar.related.value intValue]];
     cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", [relatedChar.related.value intValue]]; 
+    if ([relatedChar.related hasFavorit]) {
+        UIImage *favoritEgdeImage = [UIImage imageNamed:@"favorit-edge.png"];
+        cell.favoritEdgeView.image = favoritEgdeImage;        
+    }
     return cell;
 }
 

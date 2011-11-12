@@ -12,9 +12,10 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBProxyObject</string>
-			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
+			<string>IBUIImageView</string>
+			<string>IBUILabel</string>
+			<string>IBProxyObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -47,6 +48,17 @@
 						<int key="NSvFlags">256</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIImageView" id="456743295">
+								<reference key="NSNextResponder" ref="777998501"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrameSize">{16, 16}</string>
+								<reference key="NSSuperview" ref="777998501"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="713705492"/>
+								<string key="NSReuseIdentifierKey">_NS:541</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
 							<object class="IBUILabel" id="713705492">
 								<reference key="NSNextResponder" ref="777998501"/>
 								<int key="NSvFlags">292</int>
@@ -131,7 +143,7 @@
 						<string key="NSFrameSize">{300, 50}</string>
 						<reference key="NSSuperview" ref="1003350245"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="713705492"/>
+						<reference key="NSNextKeyView" ref="456743295"/>
 						<string key="NSReuseIdentifierKey">_NS:370</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -194,6 +206,14 @@
 					</object>
 					<int key="connectionID">9</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">favoritEdgeView</string>
+						<reference key="source" ref="1003350245"/>
+						<reference key="destination" ref="456743295"/>
+					</object>
+					<int key="connectionID">11</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -223,6 +243,7 @@
 							<reference ref="713705492"/>
 							<reference ref="1050175942"/>
 							<reference ref="538887064"/>
+							<reference ref="456743295"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -241,6 +262,11 @@
 						<reference key="object" ref="1050175942"/>
 						<reference key="parent" ref="1003350245"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">10</int>
+						<reference key="object" ref="456743295"/>
+						<reference key="parent" ref="1003350245"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -251,6 +277,7 @@
 					<string>-1.IBPluginDependency</string>
 					<string>-2.CustomClassName</string>
 					<string>-2.IBPluginDependency</string>
+					<string>10.IBPluginDependency</string>
 					<string>2.CustomClassName</string>
 					<string>2.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
@@ -262,6 +289,7 @@
 					<string>UnicodeDetailViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UVRelatedCharTableViewCell</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -282,7 +310,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">9</int>
+			<int key="maxID">11</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -355,12 +383,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>charHexValueLabel</string>
 							<string>charLabel</string>
+							<string>favoritEdgeView</string>
 							<string>unicodeNameLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UILabel</string>
+							<string>UIImageView</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -370,6 +400,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>charHexValueLabel</string>
 							<string>charLabel</string>
+							<string>favoritEdgeView</string>
 							<string>unicodeNameLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -381,6 +412,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">charLabel</string>
 								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">favoritEdgeView</string>
+								<string key="candidateClassName">UIImageView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">unicodeNameLabel</string>

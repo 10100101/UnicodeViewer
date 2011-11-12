@@ -28,6 +28,7 @@
 @synthesize unicodeNameLabel;
 @synthesize charHexValueLabel;
 @synthesize charLabel;
+@synthesize favoritEdgeView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
