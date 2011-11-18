@@ -63,6 +63,7 @@
     
     UVBlockRepository *blockReposiory = [[UVBlockRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];
     blocks = [[blockReposiory listAllBlocks] retain]; 
+    [blockReposiory release];
     // Init Database
     /*
     UVCharRepository *charReposiory = [[UVCharRepository alloc] initWithManagedObjectContext:[UVCoreDataHelp defaultContext]];

@@ -16,7 +16,7 @@
 		<string>logo@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.10100101.unicodeviewer.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.10100101.unicodeviewer</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
