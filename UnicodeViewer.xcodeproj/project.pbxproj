@@ -539,6 +539,9 @@
 /* Begin PBXProject section */
 		1B1A96C113C08F5C001E2AD5 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 1B1A96C413C08F5C001E2AD5 /* Build configuration list for PBXProject "UnicodeViewer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -776,6 +779,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnicodeViewer/UnicodeViewer-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UnicodeViewer/UnicodeViewer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -789,6 +793,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnicodeViewer/UnicodeViewer-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UnicodeViewer/UnicodeViewer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -807,6 +812,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnicodeViewerTests/UnicodeViewerTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UnicodeViewerTests/UnicodeViewerTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -829,6 +835,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnicodeViewerTests/UnicodeViewerTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "UnicodeViewerTests/UnicodeViewerTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
