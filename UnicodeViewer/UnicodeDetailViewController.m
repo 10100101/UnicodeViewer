@@ -210,6 +210,9 @@ enum UVDetailViewActionSheetPosition {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
+    if (charInfo && [charInfo.related count] == 0) {
+        return NUMBER_OF_SECTIONS-1;
+    } 
     return NUMBER_OF_SECTIONS;
 }
 
