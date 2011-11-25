@@ -26,6 +26,7 @@
 #import "UnicodeListViewController.h"
 #import "UnicodeDetailViewController.h"
 #import "UVCharRepository.h"
+#import "UVCharEncodingHelper.h"
 #import "UVCoreDataHelp.h"
 #import "UVCharListTableViewCell.h"
 #import "UVChar.h"
@@ -153,7 +154,7 @@
     } else {
         cell.unicodeNameLabel.text = @"";     
     }
-    cell.charLabel.text         = [NSString stringWithFormat:@"%C", c];
+    cell.charLabel.text         = [UVCharEncodingHelper toNSString:c];
     cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", c]; 
         
     if ([charInfo hasFavorit]) {

@@ -70,5 +70,28 @@
     return @"";
 }
 
++ (NSData *)   toUtf8Data:(int) unicode{
+    NSData *data = nil;
+    if (unicode < 0x80) {
+        const unsigned char chars[] = {unicode};
+        data = [NSData dataWithBytes:chars length:1];        
+    } else if (unicode < 0x800) {
+        const unsigned char chars[] = {(unicode >> 6 | 0xC0), ((unicode & 0x3f) | 0x80)};
+        data = [NSData dataWithBytes:chars length:2];        
+    } else if (unicode < 0x10000) {
+        const unsigned char chars[] = {(unicode >> 12 | 0xE0), (((unicode >> 6) & 0x3f) | 0x80), ((unicode & 0x3f) | 0x80)};
+        data = [NSData dataWithBytes:chars length:3];        
+    } else if (unicode <= 0x1FFFFF) {
+        const unsigned char chars[] = {(unicode >> 18 | 0xF0), (((unicode >> 12) & 0x3f) | 0x80), (((unicode >> 6) & 0x3f) | 0x80), ((unicode & 0x3f) | 0x80)};
+        data = [NSData dataWithBytes:chars length:4];        
+    }
+    return data;
+}
+
+
++ (NSString *) toNSString:(int) unicode {
+    return [NSString stringWithUTF8String:[[UVCharEncodingHelper toUtf8Data:unicode] bytes]];
+}
+
 
 @end
