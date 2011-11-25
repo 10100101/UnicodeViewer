@@ -12,6 +12,7 @@
 #import "UVFavoritCharRepository.h"
 #import "UVCharRepository.h"
 #import "UVChar.h"
+#import "UVCharEncodingHelper.h"
 #import "UVFavoritChar.h"
 #import "UVCoreDataHelp.h"
 
@@ -129,7 +130,7 @@
     UVChar *charInfo = favorit.charInfo;
     int c = [charInfo.value intValue];
     
-    cell.charLabel.text = [NSString stringWithFormat:@"%C", c];     
+    cell.charLabel.text = [UVCharEncodingHelper toNSString:c];     
     if (charInfo) {
         NSString *name = charInfo.name == nil ? @"": charInfo.name;
         cell.unicodeNameLabel.text = name; 

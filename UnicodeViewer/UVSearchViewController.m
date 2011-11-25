@@ -28,6 +28,7 @@
 #import "UVCharFullTextSearchService.h"
 #import "UVCoreDataHelp.h"
 #import "UVChar.h"
+#import "UVCharEncodingHelper.h"
 #import "UVChar+Favorits.h"
 
 double const SEARCH_DELAY = 1.0;
@@ -183,7 +184,7 @@ double const SEARCH_DELAY = 1.0;
     }
     UVChar *charInfo = (UVChar *)[charInfos objectAtIndex:indexPath.row];
     int c = [charInfo.value intValue];
-    cell.charLabel.text = [NSString stringWithFormat:@"%C", c];     
+    cell.charLabel.text = [UVCharEncodingHelper toNSString:c];     
     if (charInfo) {
         NSString *name = charInfo.name == nil ? @"": charInfo.name;
         cell.unicodeNameLabel.text = name; 

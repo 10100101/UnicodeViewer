@@ -29,5 +29,7 @@
 + (NSString *) toHtmlEntityDec:(int) unicode;
 + (NSString *) toUnicodeHex:(int) unicode;
 + (NSString *) toUtf8Hex:(int) unicode;
-
++ (NSString *) toNSString:(int) unicode;
++ (NSData *)   toUtf8Data:(int) unicode;
+ 
 @end

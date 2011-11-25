@@ -140,7 +140,7 @@ enum UVDetailViewActionSheetPosition {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.fileformat.info/info/unicode/char/%04X/index.htm", [self.charInfo.value intValue]]]];
     } else if (buttonIndex == UVDetailViewActionSheetCopy) {
         UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
-        [gpBoard setString:[NSString stringWithFormat:@"%C", unicode]];   
+        [gpBoard setString:[UVCharEncodingHelper toNSString:unicode]];   
     }
 }
 
@@ -164,7 +164,7 @@ enum UVDetailViewActionSheetPosition {
                           
     self.navigationItem.backBarButtonItem.title = @"Unicodes";
     
-    charLabel.text      = [NSString stringWithFormat:@"%C", unicode];
+    charLabel.text      = [UVCharEncodingHelper toNSString:unicode];
     [self updateCharNameLabel:charInfo.name];
 
     UIBarButtonItem *showActionSheet = 
@@ -287,7 +287,7 @@ enum UVDetailViewActionSheetPosition {
     }
     UVRelatedChars *relatedChar = (UVRelatedChars *)[relatedChars objectAtIndex:row];
     cell.unicodeNameLabel.text  = relatedChar.related.name;
-    cell.charLabel.text         = [NSString stringWithFormat:@"%C", [relatedChar.related.value intValue]];
+    cell.charLabel.text         = [UVCharEncodingHelper toNSString:[relatedChar.related.value intValue]];
     cell.charHexValueLabel.text = [NSString stringWithFormat:@"U+%04X", [relatedChar.related.value intValue]]; 
     if ([relatedChar.related hasFavorit]) {
         UIImage *favoritEgdeImage = [UIImage imageNamed:@"favorit-edge.png"];
