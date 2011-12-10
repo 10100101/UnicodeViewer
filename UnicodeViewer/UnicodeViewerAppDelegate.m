@@ -27,6 +27,7 @@ BOOL const REPLACE_DATABASE = NO;
 
 
 #import "UnicodeViewerAppDelegate.h"
+#import "SCAppUtils.h"
 
 @implementation UnicodeViewerAppDelegate
 
@@ -41,12 +42,20 @@ BOOL const REPLACE_DATABASE = NO;
 
 @synthesize tabBarController=_tabBarController;
 
+@synthesize unicodeNavController=_unicodeNavController;
+@synthesize favNavController=_favNavController;
+@synthesize searchNavController=_searchNavController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [SCAppUtils customizeNavigationController:self.unicodeNavController];
+    [SCAppUtils customizeNavigationController:self.favNavController];
+    [SCAppUtils customizeNavigationController:self.searchNavController];
+    
     // Add the tab bar controller's current view as a subview of the window
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+        
     return YES;
 }
 
@@ -238,6 +247,9 @@ BOOL const REPLACE_DATABASE = NO;
     [__persistentStoreCoordinator release];
     [_window release];
     [_tabBarController release];
+    [_unicodeNavController release];
+    [_favNavController release];
+    [_searchNavController release];
     [super dealloc];
 }
 

@@ -38,6 +38,10 @@
 
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
+@property (nonatomic, retain) IBOutlet UINavigationController *unicodeNavController;
+@property (nonatomic, retain) IBOutlet UINavigationController *favNavController;
+@property (nonatomic, retain) IBOutlet UINavigationController *searchNavController;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectoryURL;
 - (NSString *)applicationDocumentsDirectoryPath;

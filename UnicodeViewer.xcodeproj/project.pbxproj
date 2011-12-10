@@ -72,6 +72,10 @@
 		5573FBB51437B7340015D001 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB11437B7340015D001 /* FMDatabaseAdditions.m */; };
 		5573FBB61437B7340015D001 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB31437B7340015D001 /* FMResultSet.m */; };
 		5573FBB91437B77B0015D001 /* UVCharFullTextSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5573FBB81437B77B0015D001 /* UVCharFullTextSearchService.m */; };
+		55790FF51493F4370011272E /* SCAppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55790FED1493F4370011272E /* SCAppUtils.m */; };
+		55790FF61493F4370011272E /* SCClassUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55790FEF1493F4370011272E /* SCClassUtils.m */; };
+		55790FF81493F4370011272E /* UINavigationBar+SCBackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55790FF31493F4370011272E /* UINavigationBar+SCBackgroundImage.m */; };
+		55790FFA1493FB920011272E /* navigation-bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 55790FF91493FB920011272E /* navigation-bar-bg.png */; };
 		558101851461D9EE003CDCAC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 558101831461D9EE003CDCAC /* logo.png */; };
 		558101861461D9EE003CDCAC /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 558101841461D9EE003CDCAC /* logo@2x.png */; };
 		559F3E0A13D0C83100874BE4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559F3E0913D0C83100874BE4 /* CoreData.framework */; };
@@ -207,6 +211,13 @@
 		5573FBB71437B77B0015D001 /* UVCharFullTextSearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UVCharFullTextSearchService.h; sourceTree = "<group>"; };
 		5573FBB81437B77B0015D001 /* UVCharFullTextSearchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UVCharFullTextSearchService.m; sourceTree = "<group>"; };
 		5573FBBE1437BAD00015D001 /* RRFTS3ExtensionLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFTS3ExtensionLoader.h; sourceTree = "<group>"; };
+		55790FEC1493F4370011272E /* SCAppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAppUtils.h; sourceTree = "<group>"; };
+		55790FED1493F4370011272E /* SCAppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAppUtils.m; sourceTree = "<group>"; };
+		55790FEE1493F4370011272E /* SCClassUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCClassUtils.h; sourceTree = "<group>"; };
+		55790FEF1493F4370011272E /* SCClassUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCClassUtils.m; sourceTree = "<group>"; };
+		55790FF21493F4370011272E /* UINavigationBar+SCBackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+SCBackgroundImage.h"; sourceTree = "<group>"; };
+		55790FF31493F4370011272E /* UINavigationBar+SCBackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+SCBackgroundImage.m"; sourceTree = "<group>"; };
+		55790FF91493FB920011272E /* navigation-bar-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-bg.png"; sourceTree = "<group>"; };
 		558101831461D9EE003CDCAC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		558101841461D9EE003CDCAC /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		559F3E0913D0C83100874BE4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -423,6 +434,7 @@
 		1BD38F2413CA3ED00017FC59 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55790FF91493FB920011272E /* navigation-bar-bg.png */,
 				553D9A1F146F0FF9001A0BED /* favorit-edge.png */,
 				553D9A20146F0FF9001A0BED /* favorit-edge@2x.png */,
 				55A19036146B1A860040C188 /* bookmark-ribbon.png */,
@@ -465,6 +477,7 @@
 		5563972513CC99B000348B25 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				55790FE91493F3DE0011272E /* SCNavBar */,
 				5573FBBE1437BAD00015D001 /* RRFTS3ExtensionLoader.h */,
 				5573FBAD1437B71F0015D001 /* fmdb */,
 				1B9E7DCA13C0D44000ABD69D /* CopyLabel.h */,
@@ -492,6 +505,19 @@
 				5573FBB31437B7340015D001 /* FMResultSet.m */,
 			);
 			name = fmdb;
+			sourceTree = "<group>";
+		};
+		55790FE91493F3DE0011272E /* SCNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				55790FEC1493F4370011272E /* SCAppUtils.h */,
+				55790FED1493F4370011272E /* SCAppUtils.m */,
+				55790FEE1493F4370011272E /* SCClassUtils.h */,
+				55790FEF1493F4370011272E /* SCClassUtils.m */,
+				55790FF21493F4370011272E /* UINavigationBar+SCBackgroundImage.h */,
+				55790FF31493F4370011272E /* UINavigationBar+SCBackgroundImage.m */,
+			);
+			name = SCNavBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -620,6 +646,7 @@
 				55328426146DC3CA00CE99D5 /* UVSearchActivityOverlay.xib in Resources */,
 				553D9A21146F0FF9001A0BED /* favorit-edge.png in Resources */,
 				553D9A22146F0FF9001A0BED /* favorit-edge@2x.png in Resources */,
+				55790FFA1493FB920011272E /* navigation-bar-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +712,9 @@
 				55A7CCD31467294A001315BE /* UVChar.m in Sources */,
 				55A7CCD614672A5C001315BE /* UVRelatedCharTableViewCell.m in Sources */,
 				55A1903C146B1E3F0040C188 /* UVFavoritRibbonManager.m in Sources */,
+				55790FF51493F4370011272E /* SCAppUtils.m in Sources */,
+				55790FF61493F4370011272E /* SCClassUtils.m in Sources */,
+				55790FF81493F4370011272E /* UINavigationBar+SCBackgroundImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +782,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "U+View";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -767,6 +798,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "U+View";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
