@@ -49,25 +49,26 @@
 
 + (NSString *) toUtf8Hex:(int) unicode {
     if (unicode < 0) return @"";
-    if (unicode < 0x80) {
-        return [NSString stringWithFormat:@"0x%02X", unicode];
-    } else if (unicode < 0x800) {
-        NSString *utf8String = [NSString stringWithFormat:@"0x%02X", (unicode >> 6 | 0xC0)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", ((unicode & 0x3f) | 0x80)];
-        return utf8String;
-    } else if (unicode < 0x10000) {
-        NSString *utf8String = [NSString stringWithFormat:@"0x%02X", (unicode >> 12 | 0xE0)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", (((unicode >> 6) & 0x3f) | 0x80)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", ((unicode & 0x3f) | 0x80)];
-        return utf8String;
-    } else if (unicode <= 0x1FFFFF) {
-        NSString *utf8String = [NSString stringWithFormat:@"0x%02X", (unicode >> 18 | 0xF0)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", (((unicode >> 12) & 0x3f) | 0x80)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", (((unicode >> 6) & 0x3f) | 0x80)];
-        utf8String = [utf8String stringByAppendingFormat:@" 0x%02X", ((unicode & 0x3f) | 0x80)];
-        return utf8String;
+    NSString *result = @""; 
+    NSData *utf8Data = [UVCharEncodingHelper toUtf8Data:unicode];
+    for (int i = 0; i < [utf8Data length]; i++) {
+        result = [result stringByAppendingFormat:@" 0x%02X", ((const unsigned char *)[utf8Data bytes])[i]];
     }
-    return @"";
+    return [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
++ (NSString *) toMojibakeString:(int) unicode {
+    NSData *utf8Data = [UVCharEncodingHelper toUtf8Data:unicode];
+    
+    return [[[NSString alloc] initWithBytes:[utf8Data bytes] length:[utf8Data length] encoding:NSWindowsCP1252StringEncoding] autorelease];
+}
+
++ (NSString *) toLatin1Utf8String:(int) unicode {
+    NSString *result = @"";
+    
+    result = [[NSString alloc] initWithData:[UVCharEncodingHelper toUtf8Data:unicode] encoding:NSISOLatin1StringEncoding];
+    
+    return result;
 }
 
 + (NSData *)   toUtf8Data:(int) unicode{

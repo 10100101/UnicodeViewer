@@ -31,5 +31,7 @@
 + (NSString *) toUtf8Hex:(int) unicode;
 + (NSString *) toNSString:(int) unicode;
 + (NSData *)   toUtf8Data:(int) unicode;
++ (NSString *) toMojibakeString:(int) unicode;
++ (NSString *) toLatin1Utf8String:(int) unicode;
  
 @end

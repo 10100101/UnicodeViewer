@@ -37,7 +37,7 @@
 
 NSInteger const NUMBER_OF_SECTIONS      = 3;
 NSInteger const NUMBER_OF_COMMON_ROWS   = 1;
-NSInteger const NUMBER_OF_ENCODING_ROWS = 4;
+NSInteger const NUMBER_OF_ENCODING_ROWS = 5;
 
 enum UVDetailViewSectionPosition {
     UVDetailViewSectionPositionCommon   = 0,
@@ -50,7 +50,8 @@ enum UVDetailViewEncodingPosition {
     UVDetailViewEncodingPositionUtf8    = 1,
     UVDetailViewEncodingPositionHtmlHex = 2,
     UVDetailViewEncodingPositionHtmlDec = 3,
-    UVDetailViewEncodingPositionUtf16   = 4
+    UVDetailViewEncodingPositionError   = 4,
+    UVDetailViewEncodingPositionUtf16   = 5 
 };
 
 enum UVDetailViewActionSheetPosition {
@@ -263,6 +264,9 @@ enum UVDetailViewActionSheetPosition {
     } else if (row == UVDetailViewEncodingPositionUtf8) {
         cell.encodingLable.text = @"UTF-8: ";
         cell.valueLable.text    = [UVCharEncodingHelper toUtf8Hex: unicode];    
+    } else if (row == UVDetailViewEncodingPositionError) {
+        cell.encodingLable.text = @"Mojibake: ";
+        cell.valueLable.text    = [UVCharEncodingHelper toMojibakeString: unicode];        
     }
     cell.backgroundColor = [UIColor whiteColor];
     
