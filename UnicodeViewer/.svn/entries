@@ -1,0 +1,973 @@
+10
+
+dir
+0
+file:///Users/uli/.svn/GraffitiServer/UnicodeViewer/UnicodeViewer
+file:///Users/uli/.svn
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+67b0d7ea-cfe1-4b68-8325-9d759fc02096
+
+tag-d.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+main.m
+file
+
+
+
+add
+
+uni-blocks-6.0.0.txt
+file
+
+
+
+add
+
+UVCharRepository.m
+file
+
+
+
+add
+
+tag-l.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UnicodeDetailViewController.xib
+file
+
+
+
+add
+
+UVBlock.h
+file
+
+
+
+add
+
+UnicodeViewer-Info.plist
+file
+
+
+
+add
+
+UVCoreDataHelp.h
+file
+
+
+
+add
+
+UVBlock.m
+file
+
+
+
+add
+
+bookmark-ribbon.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVCoreDataHelp.m
+file
+
+
+
+add
+
+UnicodeListViewController.xib
+file
+
+
+
+add
+
+UVFavoritRibbonManager.h
+file
+
+
+
+add
+
+UVCharDataXMLImporterDelegate.h
+file
+
+
+
+add
+
+UnicodeListViewController.h
+file
+
+
+
+add
+
+heart-d.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVFavoritRibbonManager.m
+file
+
+
+
+add
+
+UVCharListTableViewCell.xib
+file
+
+
+
+add
+
+UVCharDataXMLImporterDelegate.m
+file
+
+
+
+add
+
+UnicodeViewer-Prefix.pch
+file
+
+
+
+add
+
+UnicodeListViewController.m
+file
+
+
+
+add
+
+UINavigationBar+SCBackgroundImage.h
+file
+
+
+
+add
+
+star-d.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+SCAppUtils.h
+file
+
+
+
+add
+
+UVCharListTableViewCell.h
+file
+
+
+
+add
+
+marker@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVChar.h
+file
+
+
+
+add
+
+heart-l.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UINavigationBar+SCBackgroundImage.m
+file
+
+
+
+add
+
+SCAppUtils.m
+file
+
+
+
+add
+
+UVCharListTableViewCell.m
+file
+
+
+
+add
+
+UVChar.m
+file
+
+
+
+add
+
+UVCharEncodingTableViewCell.xib
+file
+
+
+
+add
+
+index-cards.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+star-l.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVBlockListViewController.h
+file
+
+
+
+add
+
+en.lproj
+dir
+
+
+
+add
+
+cabinet.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVBlockRepository.h
+file
+
+
+
+add
+
+UVBlockListViewController.m
+file
+
+
+
+add
+
+uni-grouped-6.0.0.xml
+file
+
+
+
+add
+
+UVCharBlockTableViewCell.h
+file
+
+
+
+add
+
+RRFTS3ExtensionLoader.h
+file
+
+
+
+add
+
+favorit-edge.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVBlockRepository.m
+file
+
+
+
+add
+
+UVSearchViewController.xib
+file
+
+
+
+add
+
+UVCharBlockTableViewCell.m
+file
+
+
+
+add
+
+start-image-568h@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+SCClassUtils.h
+file
+
+
+
+add
+
+marker.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVSearchViewController.h
+file
+
+
+
+add
+
+UVFavoriteListViewController.xib
+file
+
+
+
+add
+
+UVChar+Favorits.h
+file
+
+
+
+add
+
+SCClassUtils.m
+file
+
+
+
+add
+
+logo-512x512.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+favorit-edge@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVFavoritChar.h
+file
+
+
+
+add
+
+logo-72x72.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVSearchViewController.m
+file
+
+
+
+add
+
+ios-fabric@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVFavoriteListViewController.h
+file
+
+
+
+add
+
+FMDatabaseAdditions.h
+file
+
+
+
+add
+
+UVChar+Favorits.m
+file
+
+
+
+add
+
+UVCharFullTextSearchService.h
+file
+
+
+
+add
+
+UVFavoritChar.m
+file
+
+
+
+add
+
+UVFavoriteListViewController.m
+file
+
+
+
+add
+
+UVSearchActivityOverlay.xib
+file
+
+
+
+add
+
+FMDatabaseAdditions.m
+file
+
+
+
+add
+
+UVCharFullTextSearchService.m
+file
+
+
+
+add
+
+UVRelatedCharTableViewCell.h
+file
+
+
+
+add
+
+logo.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVCharEncodingHelper.h
+file
+
+
+
+add
+
+UVRelatedCharTableViewCell.m
+file
+
+
+
+add
+
+logo.ai
+file
+
+
+
+add
+
+UVCharEncodingHelper.m
+file
+
+
+
+add
+
+logo@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UnicodeDetailViewController.h
+file
+
+
+
+add
+
+CopyLabel.h
+file
+
+
+
+add
+
+UVDB.sqlite
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVRelatedChars.h
+file
+
+
+
+add
+
+UnicodeDetailViewController.m
+file
+
+
+
+add
+
+FMResultSet.h
+file
+
+
+
+add
+
+UVModel.xcdatamodeld
+dir
+
+
+
+add
+
+CopyLabel.m
+file
+
+
+
+add
+
+UVRelatedChars.m
+file
+
+
+
+add
+
+FMResultSet.m
+file
+
+
+
+add
+
+UVFavoritCharRepository.h
+file
+
+
+
+add
+
+start-image@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVDetailTableViewHeader.xib
+file
+
+
+
+add
+
+bookmark-ribbon@2x.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVUIConstants.h
+file
+
+
+
+add
+
+FMDatabase.h
+file
+
+
+
+add
+
+UVFavoritCharRepository.m
+file
+
+
+
+add
+
+UVBlockListViewController.xib
+file
+
+
+
+add
+
+FMDatabase.m
+file
+
+
+
+add
+
+UVCharBlockTableViewCell.xib
+file
+
+
+
+add
+
+UVCharEncodingTableViewCell.h
+file
+
+
+
+add
+
+UnicodeViewerAppDelegate.h
+file
+
+
+
+add
+
+shoebox.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVDataImporter.h
+file
+
+
+
+add
+
+UVCharEncodingTableViewCell.m
+file
+
+
+
+add
+
+UnicodeViewerAppDelegate.m
+file
+
+
+
+add
+
+start-image.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+ios-fabric.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVDataImporter.m
+file
+
+
+
+add
+
+navigation-bar-bg.png
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+UVRelatedCharTableViewCell.xib
+file
+
+
+
+add
+
+UVCharRepository.h
+file
+
+
+
+add
+
